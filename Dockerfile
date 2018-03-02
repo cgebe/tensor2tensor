@@ -2,16 +2,21 @@ FROM tensorflow/tensorflow:1.6.0
 
 MAINTAINER Christoph Gebendorfer
 
+RUN pip install sympy && \
+    pip install requests && \
+    pip install bz2file
+
+
 COPY . /etc/tensor2tensor
 ENV PYTHONPATH /etc/tensor2tensor
-ENV TMPDIR /tmp/t2t_datagen
+ENV TMP_DIR /tmp/t2t_datagen
 
 RUN mkdir -p /etc/tensor2tensor/data
 RUN mkdir -p /etc/tensor2tensor/train
-ENV DATADIR /etc/tensor2tensor/data
-ENV TRAINDIR /etc/tensor2tensor/train
+ENV DATA_DIR /etc/tensor2tensor/data
+ENV TRAIN_DIR /etc/tensor2tensor/train
 VOLUME ["/etc/tensor2tensor/data", "/etc/tensor2tensor/train"]
 
-ENTRYPOINT ["/bin/bash"]
+WORKDIR /etc/tensor2tensor/tensor2tensor/bin
 
-t2t-datagen --data_dir=/home/chris/t2t/data --tmp_dir=/tmp/t2t_datagen --problem=translate_deen_legal8k
+ENTRYPOINT ["/bin/bash"]

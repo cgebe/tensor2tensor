@@ -335,300 +335,300 @@ _TRAIN_DATASETS = {
 }
 
 _TEST_DATASETS = {
-    "cs-de": {
-        "dcep": [
+    "cs-de": [
+        [
             "https://transfer.sh/A1DDK/dcep.cs-de-test.tar.gz",
             ("dcep.cs-de-test.cs", "dcep.cs-de-test.de")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/15OJTa/europarl-v7.cs-de-test.tar.gz",
             ("europarl-v7.cs-de-test.cs", "europarl-v7.cs-de-test.de")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/ZaoIp/jrc_acquis.cs-de-test.tar.gz",
             ("jrc_acquis.cs-de-test.cs", "jrc_acquis.cs-de-test.de")
         ]
-    },
-    "cs-en": {
-        "dcep": [
+    ],
+    "cs-en": [
+        [
             "https://transfer.sh/u6K9T/dcep.cs-en-test.tar.gz",
             ("dcep.cs-en-test.cs", "dcep.cs-en-test.en")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/INL7D/europarl-v7.cs-en-test.tar.gz",
             ("europarl-v7.cs-en-test.cs", "europarl-v7.cs-en-test.en")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/H5ycC/jrc_acquis.cs-en-test.tar.gz",
             ("jrc_acquis.cs-en-test.cs", "jrc_acquis.cs-en-test.en")
         ]
-    },
-    "cs-es": {
-        "dcep": [
+    ],
+    "cs-es": [
+        [
             "https://transfer.sh/7SadY/dcep.cs-es-test.tar.gz",
             ("dcep.cs-es-test.cs", "dcep.cs-es-test.es")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/C968u/europarl-v7.cs-es-test.tar.gz",
             ("europarl-v7.cs-es-test.cs", "europarl-v7.cs-es-test.es")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/CthT9/jrc_acquis.cs-es-test.tar.gz",
             ("jrc_acquis.cs-es-test.cs", "jrc_acquis.cs-es-test.es")
         ]
-    },
-    "cs-fr": {
-        "dcep": [
+    ],
+    "cs-fr": [
+        [
             "https://transfer.sh/V2Fw8/dcep.cs-fr-test.tar.gz",
             ("dcep.cs-fr-test.cs", "dcep.cs-fr-test.fr")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/Extmq/europarl-v7.cs-fr-test.tar.gz",
             ("europarl-v7.cs-fr-test.cs", "europarl-v7.cs-fr-test.fr")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/11h1mu/jrc_acquis.cs-fr-test.tar.gz",
             ("jrc_acquis.cs-fr-test.cs", "jrc_acquis.cs-fr-test.fr")
         ]
-    },
-    "cs-it": {
-        "dcep": [
+    ],
+    "cs-it": [
+        [
             "https://transfer.sh/xHCxP/dcep.cs-it-test.tar.gz",
             ("dcep.cs-it-test.cs", "dcep.cs-it-test.it")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/dkQ4p/europarl-v7.cs-it-test.tar.gz",
             ("europarl-v7.cs-it-test.cs", "europarl-v7.cs-it-test.it")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/ZnO8v/jrc_acquis.cs-it-test.tar.gz",
             ("jrc_acquis.cs-it-test.cs", "jrc_acquis.cs-it-test.it")
         ]
-    },
-    "cs-sv": {
-        "dcep": [
+    ],
+    "cs-sv": [
+        [
             "https://transfer.sh/If8hi/dcep.cs-sv-test.tar.gz",
             ("dcep.cs-sv-test.cs", "dcep.cs-sv-test.sv")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/yvCkW/europarl-v7.cs-sv-test.tar.gz",
             ("europarl-v7.cs-sv-test.cs", "europarl-v7.cs-sv-test.sv")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/h1QGw/jrc_acquis.cs-sv-test.tar.gz",
             ("jrc_acquis.cs-sv-test.cs", "jrc_acquis.cs-sv-test.sv")
         ]
-    },
-    "de-en": {
-        "dcep": [
+    ],
+    "de-en": [
+        [
             "https://transfer.sh/CIPrk/dcep.de-en-test.tar.gz",
             ("dcep.de-en-test.de", "dcep.de-en-test.en")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/Mtzst/europarl-v7.de-en-test.tar.gz",
             ("europarl-v7.de-en-test.de", "europarl-v7.de-en-test.en")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/g2XNL/jrc_acquis.de-en-test.tar.gz",
             ("jrc_acquis.de-en-test.de", "jrc_acquis.de-en-test.en")
         ]
-    },
-    "de-es": {
-        "dcep": [
+    ],
+    "de-es": [
+        [
             "https://transfer.sh/PJ7H/dcep.de-es-test.tar.gz",
             ("dcep.de-es-test.de", "dcep.de-es-test.es")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/loJK1/europarl-v7.de-es-test.tar.gz",
             ("europarl-v7.de-es-test.de", "europarl-v7.de-es-test.es")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/14kv6J/jrc_acquis.de-es-test.tar.gz",
             ("jrc_acquis.de-es-test.de", "jrc_acquis.de-es-test.es")
         ]
-    },
-    "de-fr": {
-        "dcep": [
+    ],
+    "de-fr": [
+        [
             "https://transfer.sh/SKaTU/dcep.de-fr-test.tar.gz",
             ("dcep.de-fr-test.de", "dcep.de-fr-test.fr")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/H86yL/europarl-v7.de-fr-test.tar.gz",
             ("europarl-v7.de-fr-test.de", "europarl-v7.de-fr-test.fr")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/VkxyP/jrc_acquis.de-fr-test.tar.gz",
             ("jrc_acquis.de-fr-test.de", "jrc_acquis.de-fr-test.fr")
         ]
-    },
-    "de-it": {
-        "dcep": [
+    ],
+    "de-it": [
+        [
             "https://transfer.sh/uB9rW/dcep.de-it-test.tar.gz",
             ("dcep.de-it-test.de", "dcep.de-it-test.it")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/LpYYG/europarl-v7.de-it-test.tar.gz",
             ("europarl-v7.de-it-test.de", "europarl-v7.de-it-test.it")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/106HDZ/jrc_acquis.de-it-test.tar.gz",
             ("jrc_acquis.de-it-test.de", "jrc_acquis.de-it-test.it")
         ]
-    },
-    "de-sv": {
-        "dcep": [
+    ],
+    "de-sv": [
+        [
             "https://transfer.sh/PoAam/dcep.de-sv-test.tar.gz",
             ("dcep.de-sv-test.de", "dcep.de-sv-test.sv")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/SN3Oc/europarl-v7.de-sv-test.tar.gz",
             ("europarl-v7.de-sv-test.de", "europarl-v7.de-sv-test.sv")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/CGpgh/jrc_acquis.de-sv-test.tar.gz",
             ("jrc_acquis.de-sv-test.de", "jrc_acquis.de-sv-test.sv")
         ]
-    },
-    "en-es": {
-        "dcep": [
+    ],
+    "en-es": [
+        [
             "https://transfer.sh/m5OIV/dcep.en-es-test.tar.gz",
             ("dcep.en-es-test.en", "dcep.en-es-test.es")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/PA3h9/europarl-v7.en-es-test.tar.gz",
             ("europarl-v7.en-es-test.en", "europarl-v7.en-es-test.es")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/q4mCx/jrc_acquis.en-es-test.tar.gz",
             ("jrc_acquis.en-es-test.en", "jrc_acquis.en-es-test.es")
         ]
-    },
-    "en-fr": {
-        "dcep": [
+    ],
+    "en-fr": [
+        [
             "https://transfer.sh/Kibpt/dcep.en-fr-test.tar.gz",
             ("dcep.en-fr-test.en", "dcep.en-fr-test.fr")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/127vl9/europarl-v7.en-fr-test.tar.gz",
             ("europarl-v7.en-fr-test.en", "europarl-v7.en-fr-test.fr")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/12JQjr/jrc_acquis.en-fr-test.tar.gz",
             ("jrc_acquis.en-fr-test.en", "jrc_acquis.en-fr-test.fr")
         ]
-    },
-    "en-it": {
-        "dcep": [
+    ],
+    "en-it": [
+        [
             "https://transfer.sh/y4Sax/dcep.en-it-test.tar.gz",
             ("dcep.en-it-test.en", "dcep.en-it-test.it")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/2LUT2/europarl-v7.en-it-test.tar.gz",
             ("europarl-v7.en-it-test.en", "europarl-v7.en-it-test.it")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/WeqCa/jrc_acquis.en-it-test.tar.gz",
             ("jrc_acquis.en-it-test.en", "jrc_acquis.en-it-test.it")
         ]
-    },
-    "en-sv": {
-        "dcep": [
+    ],
+    "en-sv": [
+        [
             "https://transfer.sh/1xy4j/dcep.en-sv-test.tar.gz",
             ("dcep.en-sv-test.en", "dcep.en-sv-test.sv")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/6wwsf/europarl-v7.en-sv-test.tar.gz",
             ("europarl-v7.en-sv-test.en", "europarl-v7.en-sv-test.sv")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/pIPoD/jrc_acquis.en-sv-test.tar.gz",
             ("jrc_acquis.en-sv-test.en", "jrc_acquis.en-sv-test.sv")
         ]
-    },
-    "es-fr": {
-        "dcep": [
+    ],
+    "es-fr": [
+        [
             "https://transfer.sh/OxEFi/dcep.es-fr-test.tar.gz",
             ("dcep.es-fr-test.es", "dcep.es-fr-test.fr")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/rtY29/europarl-v7.es-fr-test.tar.gz",
             ("europarl-v7.es-fr-test.es", "europarl-v7.es-fr-test.fr")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/sDmzu/jrc_acquis.es-fr-test.tar.gz",
             ("jrc_acquis.es-fr-test.es", "jrc_acquis.es-fr-test.fr")
         ]
-    },
-    "es-it": {
-        "dcep": [
+    ],
+    "es-it": [
+        [
             "https://transfer.sh/ZCDPp/dcep.es-it-test.tar.gz",
             ("dcep.es-it-test.es", "dcep.es-it-test.it")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/oORFH/europarl-v7.es-it-test.tar.gz",
             ("europarl-v7.es-it-test.es", "europarl-v7.es-it-test.it")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/DARu0/jrc_acquis.es-it-test.tar.gz",
             ("jrc_acquis.es-it-test.es", "jrc_acquis.es-it-test.it")
         ]
-    },
-    "es-sv": {
-        "dcep": [
+    ],
+    "es-sv": [
+        [
             "https://transfer.sh/5mO8g/dcep.es-sv-test.tar.gz",
             ("dcep.es-sv-test.es", "dcep.es-sv-test.sv")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/dhWfn/europarl-v7.es-sv-test.tar.gz",
             ("europarl-v7.es-sv-test.es", "europarl-v7.es-sv-test.sv")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/1jxI5/jrc_acquis.es-sv-test.tar.gz",
             ("jrc_acquis.es-sv-test.es", "jrc_acquis.es-sv-test.sv")
         ]
-    },
-    "fr-it": {
-        "dcep": [
+    ],
+    "fr-it": [
+        [
             "https://transfer.sh/jrXB2/dcep.fr-it-test.tar.gz",
             ("dcep.fr-it-test.fr", "dcep.fr-it-test.it")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/9F4tL/europarl-v7.fr-it-test.tar.gz",
             ("europarl-v7.fr-it-test.fr", "europarl-v7.fr-it-test.it")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/rf4Ne/jrc_acquis.fr-it-test.tar.gz",
             ("jrc_acquis.fr-it-test.fr", "jrc_acquis.fr-it-test.it")
         ]
-    },
-    "fr-sv": {
-        "dcep": [
+    ],
+    "fr-sv": [
+        [
             "https://transfer.sh/MWfMp/dcep.fr-sv-test.tar.gz",
             ("dcep.fr-sv-test.fr", "dcep.fr-sv-test.sv")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/yfwNf/europarl-v7.fr-sv-test.tar.gz",
             ("europarl-v7.fr-sv-test.fr", "europarl-v7.fr-sv-test.sv")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/TaSJS/jrc_acquis.fr-sv-test.tar.gz",
             ("jrc_acquis.fr-sv-test.fr", "jrc_acquis.fr-sv-test.sv")
         ]
-    },
-    "it-sv": {
-        "dcep": [
+    ],
+    "it-sv": [
+        [
             "https://transfer.sh/SqKx1/dcep.it-sv-test.tar.gz",
             ("dcep.it-sv-test.it", "dcep.it-sv-test.sv")
         ],
-        "europarl": [
+        [
             "https://transfer.sh/10xMyv/europarl-v7.it-sv-test.tar.gz",
             ("europarl-v7.it-sv-test.it", "europarl-v7.it-sv-test.sv")
         ],
-        "jrc": [
+        [
             "https://transfer.sh/E06za/jrc_acquis.it-sv-test.tar.gz",
             ("jrc_acquis.it-sv-test.it", "jrc_acquis.it-sv-test.sv")
         ]
-    }
+    ]
 }
 
 
@@ -647,7 +647,7 @@ class TranslateCsdeLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs-de"])
-        datasets = _TRAIN_DATASETS["cs-de"] if train else _TEST_DATASETS["cs-de"]["europarl"]
+        datasets = _TRAIN_DATASETS["cs-de"] if train else _TEST_DATASETS["cs-de"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_csde_tok_%s" % tag)
@@ -677,7 +677,7 @@ class TranslateCsenLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs-en"])
-        datasets = _TRAIN_DATASETS["cs-en"] if train else _TEST_DATASETS["cs-en"]["europarl"]
+        datasets = _TRAIN_DATASETS["cs-en"] if train else _TEST_DATASETS["cs-en"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_csen_tok_%s" % tag)
@@ -707,7 +707,7 @@ class TranslateCsesLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs-es"])
-        datasets = _TRAIN_DATASETS["cs-es"] if train else _TEST_DATASETS["cs-es"]["europarl"]
+        datasets = _TRAIN_DATASETS["cs-es"] if train else _TEST_DATASETS["cs-es"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_cses_tok_%s" % tag)
@@ -737,7 +737,7 @@ class TranslateCsfrLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs-fr"])
-        datasets = _TRAIN_DATASETS["cs-fr"] if train else _TEST_DATASETS["cs-fr"]["europarl"]
+        datasets = _TRAIN_DATASETS["cs-fr"] if train else _TEST_DATASETS["cs-fr"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_csfr_tok_%s" % tag)
@@ -767,7 +767,7 @@ class TranslateCsitLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs-it"])
-        datasets = _TRAIN_DATASETS["cs-it"] if train else _TEST_DATASETS["cs-it"]["europarl"]
+        datasets = _TRAIN_DATASETS["cs-it"] if train else _TEST_DATASETS["cs-it"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_csit_tok_%s" % tag)
@@ -797,7 +797,7 @@ class TranslateCssvLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs-sv"])
-        datasets = _TRAIN_DATASETS["cs-sv"] if train else _TEST_DATASETS["cs-sv"]["europarl"]
+        datasets = _TRAIN_DATASETS["cs-sv"] if train else _TEST_DATASETS["cs-sv"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_cssv_tok_%s" % tag)
@@ -827,7 +827,7 @@ class TranslateDeenLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["de-en"])
-        datasets = _TRAIN_DATASETS["de-en"] if train else _TEST_DATASETS["de-en"]["europarl"]
+        datasets = _TRAIN_DATASETS["de-en"] if train else _TEST_DATASETS["de-en"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_deen_tok_%s" % tag)
@@ -857,7 +857,7 @@ class TranslateDeesLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["de-es"])
-        datasets = _TRAIN_DATASETS["de-es"] if train else _TEST_DATASETS["de-es"]["europarl"]
+        datasets = _TRAIN_DATASETS["de-es"] if train else _TEST_DATASETS["de-es"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_dees_tok_%s" % tag)
@@ -887,7 +887,7 @@ class TranslateDefrLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["de-fr"])
-        datasets = _TRAIN_DATASETS["de-fr"] if train else _TEST_DATASETS["de-fr"]["europarl"]
+        datasets = _TRAIN_DATASETS["de-fr"] if train else _TEST_DATASETS["de-fr"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_defr_tok_%s" % tag)
@@ -917,7 +917,7 @@ class TranslateDeitLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["de-it"])
-        datasets = _TRAIN_DATASETS["de-it"] if train else _TEST_DATASETS["de-it"]["europarl"]
+        datasets = _TRAIN_DATASETS["de-it"] if train else _TEST_DATASETS["de-it"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_deit_tok_%s" % tag)
@@ -947,7 +947,7 @@ class TranslateDesvLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["de-sv"])
-        datasets = _TRAIN_DATASETS["de-sv"] if train else _TEST_DATASETS["de-sv"]["europarl"]
+        datasets = _TRAIN_DATASETS["de-sv"] if train else _TEST_DATASETS["de-sv"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_desv_tok_%s" % tag)
@@ -977,7 +977,7 @@ class TranslateEnesLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["en-es"])
-        datasets = _TRAIN_DATASETS["en-es"] if train else _TEST_DATASETS["en-es"]["europarl"]
+        datasets = _TRAIN_DATASETS["en-es"] if train else _TEST_DATASETS["en-es"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_enes_tok_%s" % tag)
@@ -1007,7 +1007,7 @@ class TranslateEnfrLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["en-fr"])
-        datasets = _TRAIN_DATASETS["en-fr"] if train else _TEST_DATASETS["en-fr"]["europarl"]
+        datasets = _TRAIN_DATASETS["en-fr"] if train else _TEST_DATASETS["en-fr"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_enfr_tok_%s" % tag)
@@ -1037,7 +1037,7 @@ class TranslateEnitLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["en-it"])
-        datasets = _TRAIN_DATASETS["en-it"] if train else _TEST_DATASETS["en-it"]["europarl"]
+        datasets = _TRAIN_DATASETS["en-it"] if train else _TEST_DATASETS["en-it"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_enit_tok_%s" % tag)
@@ -1067,7 +1067,7 @@ class TranslateEnsvLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["en-sv"])
-        datasets = _TRAIN_DATASETS["en-sv"] if train else _TEST_DATASETS["en-sv"]["europarl"]
+        datasets = _TRAIN_DATASETS["en-sv"] if train else _TEST_DATASETS["en-sv"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_ensv_tok_%s" % tag)
@@ -1097,7 +1097,7 @@ class TranslateEsfrLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["es-fr"])
-        datasets = _TRAIN_DATASETS["es-fr"] if train else _TEST_DATASETS["es-fr"]["europarl"]
+        datasets = _TRAIN_DATASETS["es-fr"] if train else _TEST_DATASETS["es-fr"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_esfr_tok_%s" % tag)
@@ -1127,7 +1127,7 @@ class TranslateEsitLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["es-it"])
-        datasets = _TRAIN_DATASETS["es-it"] if train else _TEST_DATASETS["es-it"]["europarl"]
+        datasets = _TRAIN_DATASETS["es-it"] if train else _TEST_DATASETS["es-it"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_enit_tok_%s" % tag)
@@ -1157,7 +1157,7 @@ class TranslateEssvLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["es-sv"])
-        datasets = _TRAIN_DATASETS["es-sv"] if train else _TEST_DATASETS["es-sv"]["europarl"]
+        datasets = _TRAIN_DATASETS["es-sv"] if train else _TEST_DATASETS["es-sv"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_essv_tok_%s" % tag)
@@ -1187,7 +1187,7 @@ class TranslateFritLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["fr-it"])
-        datasets = _TRAIN_DATASETS["fr-it"] if train else _TEST_DATASETS["fr-it"]["europarl"]
+        datasets = _TRAIN_DATASETS["fr-it"] if train else _TEST_DATASETS["fr-it"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_frit_tok_%s" % tag)
@@ -1217,7 +1217,7 @@ class TranslateFrsvLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["fr-sv"])
-        datasets = _TRAIN_DATASETS["fr-sv"] if train else _TEST_DATASETS["fr-sv"]["europarl"]
+        datasets = _TRAIN_DATASETS["fr-sv"] if train else _TEST_DATASETS["fr-sv"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_frsv_tok_%s" % tag)
@@ -1247,7 +1247,7 @@ class TranslateItsvLegal8k(translate.TranslateProblem):
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(
             data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["it-sv"])
-        datasets = _TRAIN_DATASETS["it-sv"] if train else _TEST_DATASETS["it-sv"]["europarl"]
+        datasets = _TRAIN_DATASETS["it-sv"] if train else _TEST_DATASETS["it-sv"]
         tag = "train" if train else "dev"
         data_path = translate.compile_data(
             tmp_dir, datasets, "legal_itsv_tok_%s" % tag)

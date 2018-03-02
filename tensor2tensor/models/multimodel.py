@@ -125,11 +125,11 @@ class MultiModel(t2t_model.T2TModel):
       return tf.expand_dims(common_layers.flatten4d3d(inputs), axis=2)
 
     # Project to hidden size if necessary
-    if (sharded_features["inputs"][0].get_shape().as_list()[-1] !=
-        hparams.hidden_size):
-      inputs = dp(project_to_hidden, sharded_features["inputs"])
+    #if (sharded_features["inputs"][0].get_shape().as_list()[-1] != hparams.hidden_size):
+        #inputs = dp(project_to_hidden, sharded_features["inputs"])
 
-    inputs = dp(flatten, inputs)
+    #inputs = dp(flatten, inputs)
+    inputs = dp(flatten, sharded_features["inputs"])
     inputs_pad = dp(slicenet.embedding_to_padding, inputs)
     inputs_mask = dp(lambda x: 1.0 - x, inputs_pad)
     inputs_encoded = dp(common_layers.add_timing_signal, inputs)
