@@ -95,6 +95,9 @@ class SpaceID(object):
   STROKES = 29
   # Pickled Python
   PICKLED_PYTHON = 30
+  ES_TOK = 31
+  IT_TOK = 32
+  SV_TOK = 33
 
 
 def default_model_hparams():
