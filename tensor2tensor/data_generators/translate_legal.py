@@ -134,7 +134,7 @@ _TRAIN_DATASETS = {
         [
             "https://transfer.sh/Q5ofs/jrc_acquis.de-en.tar.gz",
             ("jrc_acquis.de-en.de", "jrc_acquis.de-en.en")
-        ]
+        ],
     ],
     "de-es": [
         [
