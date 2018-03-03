@@ -1,11 +1,10 @@
-FROM tensorflow/tensorflow:1.6.0
+FROM tensorflow/tensorflow:1.6.0-gpu
 
 MAINTAINER Christoph Gebendorfer
 
 RUN pip install sympy && \
     pip install requests && \
     pip install bz2file
-
 
 COPY . /etc/tensor2tensor
 ENV PYTHONPATH /etc/tensor2tensor
