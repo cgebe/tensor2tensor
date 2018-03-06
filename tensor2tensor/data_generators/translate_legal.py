@@ -649,7 +649,7 @@ class TranslateLegal8k(translate.TranslateProblem):
         ]
 
 @registry.register_problem
-class TranslateCsdeLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateCsdeLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -675,7 +675,7 @@ class TranslateCsdeLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateCsenLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateCsenLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -701,7 +701,7 @@ class TranslateCsenLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateCsesLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateCsesLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -727,7 +727,7 @@ class TranslateCsesLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateCsfrLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateCsfrLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -753,7 +753,7 @@ class TranslateCsfrLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateCsitLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateCsitLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -779,7 +779,7 @@ class TranslateCsitLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateCssvLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateCssvLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -805,7 +805,7 @@ class TranslateCssvLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateDeenLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateDeenLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -831,7 +831,7 @@ class TranslateDeenLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateDeesLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateDeesLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -857,7 +857,7 @@ class TranslateDeesLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateDefrLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateDefrLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -883,7 +883,7 @@ class TranslateDefrLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateDeitLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateDeitLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -909,7 +909,7 @@ class TranslateDeitLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateDesvLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateDesvLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -935,7 +935,7 @@ class TranslateDesvLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEnesLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEnesLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -961,7 +961,7 @@ class TranslateEnesLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEnfrLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEnfrLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -987,7 +987,7 @@ class TranslateEnfrLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEnitLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEnitLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1013,7 +1013,7 @@ class TranslateEnitLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEnsvLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEnsvLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1039,7 +1039,7 @@ class TranslateEnsvLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEsfrLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEsfrLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1065,7 +1065,7 @@ class TranslateEsfrLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEsitLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEsitLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1091,7 +1091,7 @@ class TranslateEsitLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateEssvLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateEssvLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1117,7 +1117,7 @@ class TranslateEssvLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateFritLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateFritLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1143,7 +1143,7 @@ class TranslateFritLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateFrsvLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateFrsvLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property
@@ -1169,7 +1169,7 @@ class TranslateFrsvLegal8k(translate_legal.TranslateLegal8kProblem):
 
 
 @registry.register_problem
-class TranslateItsvLegal8k(translate_legal.TranslateLegal8kProblem):
+class TranslateItsvLegal8k(TranslateLegal8k):
     """Problem spec for Legal translation."""
 
     @property

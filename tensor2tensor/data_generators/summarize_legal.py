@@ -1,3 +1,18 @@
+# coding=utf-8
+# Copyright 2017 The Tensor2Tensor Authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
 """Data generators for summarization of jrc_acquis"""
 
 from __future__ import absolute_import
@@ -9,7 +24,6 @@ from __future__ import print_function
 from tensor2tensor.data_generators import generator_utils
 from tensor2tensor.data_generators import problem
 from tensor2tensor.data_generators import text_encoder
-from tensor2tensor.data_generators import translate
 from tensor2tensor.utils import registry
 
 import tensorflow as tf
@@ -213,7 +227,7 @@ class SummarizeLegal32k(problem.Text2TextProblem):
 
 
 @registry.register_problem
-class SummarizeCsLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeCsLegal32k(SummarizeLegal32k):
     """Summarize cs documents"""
 
     @property
@@ -234,13 +248,13 @@ class SummarizeCsLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["cs"] if train else _TEST_DATASETS["cs"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_cs_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
 
 
 @registry.register_problem
-class SummarizeDeLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeDeLegal32k(SummarizeLegal32k):
     """Summarize de documents"""
 
     @property
@@ -261,13 +275,13 @@ class SummarizeDeLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["de"] if train else _TEST_DATASETS["de"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_de_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
 
 
 @registry.register_problem
-class SummarizeEnLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeEnLegal32k(SummarizeLegal32k):
     """Summarize en documents"""
 
     @property
@@ -288,13 +302,13 @@ class SummarizeEnLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["en"] if train else _TEST_DATASETS["en"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_en_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
 
 
 @registry.register_problem
-class SummarizeEsLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeEsLegal32k(SummarizeLegal32k):
     """Summarize es documents"""
 
     @property
@@ -315,13 +329,13 @@ class SummarizeEsLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["es"] if train else _TEST_DATASETS["es"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_es_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
 
 
 @registry.register_problem
-class SummarizeFrLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeFrLegal32k(SummarizeLegal32k):
     """Summarize fr documents"""
 
     @property
@@ -342,13 +356,13 @@ class SummarizeFrLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["fr"] if train else _TEST_DATASETS["fr"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_fr_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
 
 
 @registry.register_problem
-class SummarizeItLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeItLegal32k(SummarizeLegal32k):
     """Summarize it documents"""
 
     @property
@@ -369,13 +383,13 @@ class SummarizeItLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["it"] if train else _TEST_DATASETS["it"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_it_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
 
 
 @registry.register_problem
-class SummarizeSvLegal32k(summarize_legal.SummarizeLegal32kProblem):
+class SummarizeSvLegal32k(SummarizeLegal32k):
     """Summarize sv documents"""
 
     @property
@@ -396,6 +410,6 @@ class SummarizeSvLegal32k(summarize_legal.SummarizeLegal32kProblem):
         datasets = _TRAIN_DATASETS["sv"] if train else _TEST_DATASETS["sv"]
         tag = "train" if train else "dev"
         # compile to save the texts onto disc
-        data_path = summarize_legal.compile_data(
+        data_path = compile_data(
             tmp_dir, datasets, "summarize_sv_tok_%s" % tag)
-        return summarize_legal.token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
