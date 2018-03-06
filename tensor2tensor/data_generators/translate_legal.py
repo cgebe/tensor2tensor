@@ -640,13 +640,6 @@ class TranslateLegal8k(translate.TranslateProblem):
     def targeted_vocab_size(self):
         return 2**13  # 8192
 
-    @property
-    def eval_metrics(self):
-        return [
-            metrics.Metrics.ACC, metrics.Metrics.ACC_TOP5,
-            metrics.Metrics.ACC_PER_SEQ, metrics.Metrics.NEG_LOG_PERPLEXITY,
-            metrics.Metrics.APPROX_BLEU
-        ]
 
 @registry.register_problem
 class TranslateCsdeLegal8k(TranslateLegal8k):

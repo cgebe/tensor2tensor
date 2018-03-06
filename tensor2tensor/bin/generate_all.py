@@ -1,7 +1,7 @@
 import os
 
 TRANSLATE_PROBLEMS = [
-    "translate_csde_legal8k",
+    #"translate_csde_legal8k",
     "translate_csen_legal8k",
     "translate_cses_legal8k",
     "translate_csfr_legal8k",
