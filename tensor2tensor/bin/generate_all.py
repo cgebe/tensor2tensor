@@ -1,3 +1,4 @@
+import os
 
 TRANSLATE_PROBLEMS = [
     "translate_csde_legal8k"
