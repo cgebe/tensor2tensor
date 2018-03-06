@@ -633,12 +633,24 @@ _TEST_DATASETS = {
 
 
 @registry.register_problem
-class TranslateCsdeLegal8k(translate.TranslateProblem):
+class TranslateLegal8k(translate.TranslateProblem):
     """Problem spec for Legal translation."""
 
     @property
     def targeted_vocab_size(self):
         return 2**13  # 8192
+
+    @property
+    def eval_metrics(self):
+        return [
+            metrics.Metrics.ACC, metrics.Metrics.ACC_TOP5,
+            metrics.Metrics.ACC_PER_SEQ, metrics.Metrics.NEG_LOG_PERPLEXITY,
+            metrics.Metrics.APPROX_BLEU
+        ]
+
+@registry.register_problem
+class TranslateCsdeLegal8k(translate_legal.TranslateLegal8kProblem):
+    """Problem spec for Legal translation."""
 
     @property
     def vocab_name(self):
@@ -663,12 +675,8 @@ class TranslateCsdeLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateCsenLegal8k(translate.TranslateProblem):
+class TranslateCsenLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -693,12 +701,8 @@ class TranslateCsenLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateCsesLegal8k(translate.TranslateProblem):
+class TranslateCsesLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -723,12 +727,8 @@ class TranslateCsesLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateCsfrLegal8k(translate.TranslateProblem):
+class TranslateCsfrLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -753,12 +753,8 @@ class TranslateCsfrLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateCsitLegal8k(translate.TranslateProblem):
+class TranslateCsitLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -783,12 +779,8 @@ class TranslateCsitLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateCssvLegal8k(translate.TranslateProblem):
+class TranslateCssvLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -813,12 +805,8 @@ class TranslateCssvLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateDeenLegal8k(translate.TranslateProblem):
+class TranslateDeenLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -843,12 +831,8 @@ class TranslateDeenLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateDeesLegal8k(translate.TranslateProblem):
+class TranslateDeesLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -873,12 +857,8 @@ class TranslateDeesLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateDefrLegal8k(translate.TranslateProblem):
+class TranslateDefrLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -903,12 +883,8 @@ class TranslateDefrLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateDeitLegal8k(translate.TranslateProblem):
+class TranslateDeitLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -933,12 +909,8 @@ class TranslateDeitLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateDesvLegal8k(translate.TranslateProblem):
+class TranslateDesvLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -963,12 +935,8 @@ class TranslateDesvLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEnesLegal8k(translate.TranslateProblem):
+class TranslateEnesLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -993,12 +961,8 @@ class TranslateEnesLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEnfrLegal8k(translate.TranslateProblem):
+class TranslateEnfrLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1023,12 +987,8 @@ class TranslateEnfrLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEnitLegal8k(translate.TranslateProblem):
+class TranslateEnitLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1053,12 +1013,8 @@ class TranslateEnitLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEnsvLegal8k(translate.TranslateProblem):
+class TranslateEnsvLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1083,12 +1039,8 @@ class TranslateEnsvLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEsfrLegal8k(translate.TranslateProblem):
+class TranslateEsfrLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1113,12 +1065,8 @@ class TranslateEsfrLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEsitLegal8k(translate.TranslateProblem):
+class TranslateEsitLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1143,12 +1091,8 @@ class TranslateEsitLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateEssvLegal8k(translate.TranslateProblem):
+class TranslateEssvLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1173,12 +1117,8 @@ class TranslateEssvLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateFritLegal8k(translate.TranslateProblem):
+class TranslateFritLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1203,12 +1143,8 @@ class TranslateFritLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateFrsvLegal8k(translate.TranslateProblem):
+class TranslateFrsvLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
@@ -1233,12 +1169,8 @@ class TranslateFrsvLegal8k(translate.TranslateProblem):
 
 
 @registry.register_problem
-class TranslateItsvLegal8k(translate.TranslateProblem):
+class TranslateItsvLegal8k(translate_legal.TranslateLegal8kProblem):
     """Problem spec for Legal translation."""
-
-    @property
-    def targeted_vocab_size(self):
-        return 2**13  # 8192
 
     @property
     def vocab_name(self):
