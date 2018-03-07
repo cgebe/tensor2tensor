@@ -40,7 +40,7 @@ EOS = text_encoder.EOS_ID
 _TRAIN_DATASETS = {
     "cs-de": [
         [
-            "https://transfer.sh/UCg6m/dcep.cs-de.tar.gz",
+            "https://transfer.sh/1PogD/dcep.cs-de.tar.gz",
             ("dcep.cs-de.cs", "dcep.cs-de.de")
         ],
         [
