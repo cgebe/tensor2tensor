@@ -24,6 +24,7 @@ import inspect
 
 from tensor2tensor.layers import common_layers
 from tensor2tensor.utils import bleu_hook
+from tensor2tensor.utils import chrf
 from tensor2tensor.utils import registry
 from tensor2tensor.utils import rouge
 
@@ -47,6 +48,7 @@ class Metrics(object):
   SET_PRECISION = "set_precision"
   SET_RECALL = "set_recall"
   IMAGE_SUMMARY = "image_summary"
+  CHR_F3 = "character_ngram_f3score"
 
 
 def padded_rmse(predictions, labels, weights_fn=common_layers.weights_all):
@@ -354,4 +356,5 @@ METRICS_FNS = {
     Metrics.SET_PRECISION: set_precision,
     Metrics.SET_RECALL: set_recall,
     Metrics.IMAGE_SUMMARY: image_summary,
+    Metrics.CHR_F3: chrf.character_ngram_f3score,
 }
