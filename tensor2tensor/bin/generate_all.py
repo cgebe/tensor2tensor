@@ -27,7 +27,7 @@ TRANSLATE_PROBLEMS = [
 
 def main():
     for problem in TRANSLATE_PROBLEMS:
-        if os.system("python ./t2t-datagen --data_dir=$DATA_DIR/translate --tmp_dir=$TMP_DIR --problem=" + problem) == 0:
+        if os.system("python ./t2t-datagen --data_dir=$DATA_DIR/translate/"+problem+" --tmp_dir=$TMP_DIR --problem=" + problem) == 0:
             continue
         else:
             print "ERROR " + problem
