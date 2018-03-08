@@ -1,6 +1,6 @@
 import os
 
-TRANSLATE_PROBLEMS = [
+"""
     "translate_csde_legal32k",
     "translate_csen_legal32k",
     "translate_cses_legal32k",
@@ -16,6 +16,9 @@ TRANSLATE_PROBLEMS = [
     "translate_enfr_legal32k",
     "translate_enit_legal32k",
     "translate_ensv_legal32k",
+"""
+
+TRANSLATE_PROBLEMS = [
     "translate_esfr_legal32k",
     "translate_esit_legal32k",
     "translate_essv_legal32k",
