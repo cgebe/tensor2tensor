@@ -42,6 +42,7 @@ class Metrics(object):
   RMSE = "rmse"
   LOG_POISSON = "log_poisson"
   R2 = "r_squared"
+  ROUGE_1_F = "rouge_1_fscore"
   ROUGE_2_F = "rouge_2_fscore"
   ROUGE_L_F = "rouge_L_fscore"
   EDIT_DISTANCE = "edit_distance"
