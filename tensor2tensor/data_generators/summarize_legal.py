@@ -225,6 +225,13 @@ class SummarizeLegal32k(problem.Text2TextProblem):
     def use_train_shards_for_dev(self):
         return False
 
+    def eval_metrics(self):
+        return [
+            metrics.Metrics.ACC, metrics.Metrics.ACC_TOP5,
+            metrics.Metrics.ACC_PER_SEQ, metrics.Metrics.NEG_LOG_PERPLEXITY,
+            metrics.Metrics.ROUGE_1_F, metrics.Metrics.ROUGE_2_F, metrics.Metrics.ROUGE_L_F
+        ]
+
 
 @registry.register_problem
 class SummarizeCsLegal32k(SummarizeLegal32k):

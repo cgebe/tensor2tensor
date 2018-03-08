@@ -644,8 +644,7 @@ class TranslateLegal32k(translate.TranslateProblem):
         return [
             metrics.Metrics.ACC, metrics.Metrics.ACC_TOP5,
             metrics.Metrics.ACC_PER_SEQ, metrics.Metrics.NEG_LOG_PERPLEXITY,
-            metrics.Metrics.APPROX_BLEU, metrics.Metrics.ROUGE_2_F,
-            metrics.Metrics.ROUGE_L_F, metrics.Metrics.CHR_F3
+            metrics.Metrics.APPROX_BLEU, metrics.Metrics.CHR_F3
         ]
 
 

@@ -227,6 +227,28 @@ def rouge_n(eval_sentences, ref_sentences, n=2):
   return np.mean(f1_scores, dtype=np.float32)
 
 
+def rouge_1_fscore(predictions, labels, **unused_kwargs):
+  """ROUGE-1 F1 score computation between labels and predictions.
+
+  This is an approximate ROUGE scoring method since we do not glue word pieces
+  or decode the ids and tokenize the output.
+
+  Args:
+    predictions: tensor, model predicitons
+    labels: tensor, gold output.
+
+  Returns:
+    rouge1_fscore: approx rouge-1 f1 score.
+  """
+
+  outputs = tf.to_int32(tf.argmax(predictions, axis=-1))
+  # Convert the outputs and labels to a [batch_size, input_length] tensor.
+  outputs = tf.squeeze(outputs, axis=[-1, -2])
+  labels = tf.squeeze(labels, axis=[-1, -2])
+  rouge_1_f_score = tf.py_func(rouge_n, (labels, outputs, 1), tf.float32)
+  return rouge_1_f_score, tf.constant(1.0)
+
+
 def rouge_2_fscore(predictions, labels, **unused_kwargs):
   """ROUGE-2 F1 score computation between labels and predictions.
 

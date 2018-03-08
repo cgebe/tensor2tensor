@@ -350,6 +350,7 @@ METRICS_FNS = {
     Metrics.RMSE: padded_rmse,
     Metrics.LOG_POISSON: padded_log_poisson,
     Metrics.R2: padded_variance_explained,
+    Metrics.ROUGE_1_F: rouge.rouge_1_fscore,
     Metrics.ROUGE_2_F: rouge.rouge_2_fscore,
     Metrics.ROUGE_L_F: rouge.rouge_l_fscore,
     Metrics.EDIT_DISTANCE: sequence_edit_distance,
