@@ -25,10 +25,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import numpy as np
 import six
 # pylint: disable=redefined-builtin
-from six.moves import xrange
 from six.moves import zip
 # pylint: enable=redefined-builtin
 
@@ -94,7 +92,7 @@ def compute_chrF(reference_corpus,
         add_ngrams_ref(ngrams_ref, total_ref)
         add_ngrams_hyp(ngrams_ref, ngrams_hyp, total_hyp, correct_total_hyp)
 
-    return fscore(total_ref, total_hyp, correct_total_hyp, max_order)
+    return fscore(total_ref, total_hyp, correct_total_hyp, max_order, recall_importance)
 
 
 def add_ngrams_ref(ngrams_ref, total_ref):
@@ -134,7 +132,7 @@ def add_ngrams_hyp(ngrams_ref, ngrams_hyp, total_hyp, correct_total_hyp):
     return total_hyp, correct_total_hyp
 
 
-def fscore(total_ref, total_hyp, correct_total_hyp, max_order, recall_importance=3, smooth=0):
+def fscore(total_ref, total_hyp, correct_total_hyp, max_order, recall_importance, smooth=0):
     """Computes the final fscore according to ngram precision and recall.
     Args:
       correct_total_hyp: count for each rank how many ngrams matched
