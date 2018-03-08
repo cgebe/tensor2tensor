@@ -321,7 +321,7 @@ _TRAIN_DATASETS = {
     "it-sv": [
         [
             "https://transfer.sh/WfNQS/dcep.it-sv.tar.gz",
-            ("dcep.it-sv-it", "dcep.it-sv.sv")
+            ("dcep.it-sv.it", "dcep.it-sv.sv")
         ],
         [
             "https://transfer.sh/h3CUa/europarl-v7.it-sv.tar.gz",
