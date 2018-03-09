@@ -42,32 +42,19 @@ def character_ngram_f3score(predictions, labels, **unused_kwargs):
       chrF3: int, approx chrF3 score
     """
 
-    return character_ngram_fscore(predictions, labels, 3)
-
-
-def character_ngram_fscore(predictions, labels, recall_importance, **unused_kwargs):
-    """ChrF score computation between labels and predictions.
-
-    Args:
-      predictions: tensor, model predictions
-      labels: tensor, gold output.
-    Returns:
-      chrF: int, approx chrF score
-    """
     outputs = tf.to_int32(tf.argmax(predictions, axis=-1))
     # Convert the outputs and labels to a [batch_size, input_length] tensor.
     outputs = tf.squeeze(outputs, axis=[-1, -2])
     labels = tf.squeeze(labels, axis=[-1, -2])
 
-    chrF = tf.py_func(compute_chrF, (labels, outputs,
-                                     recall_importance), tf.float32)
+    chrF = tf.py_func(compute_chrF, (labels, outputs), tf.float32)
 
     return chrF, tf.constant(1.0)
 
 
 def compute_chrF(reference_corpus,
                  translation_corpus,
-                 recall_importance,
+                 recall_importance=3,
                  max_order=6):
     """Computes ChrF score of translated segments against one or more references.
 
