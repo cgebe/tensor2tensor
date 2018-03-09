@@ -220,7 +220,7 @@ class SummarizeLegal32k(problem.Text2TextProblem):
 
     @property
     def targeted_vocab_size(self):
-        return 2**15  # 32768
+        return 32000
 
     @property
     def use_train_shards_for_dev(self):
