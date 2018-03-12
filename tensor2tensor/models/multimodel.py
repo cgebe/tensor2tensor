@@ -236,6 +236,12 @@ def multimodel_tiny():
   hparams.moe_layers = "0"
   return hparams
 
+@registry.register_hparams
+def multimodel_2layers():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.num_hidden_layers = 2
+  return hparams
 
 @registry.register_hparams
 def multimodel_512():
