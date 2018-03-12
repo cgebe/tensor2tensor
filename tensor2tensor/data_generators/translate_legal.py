@@ -640,12 +640,12 @@ class TranslateLegal32k(translate.TranslateProblem):
     @property
     def targeted_vocab_size(self):
         return 32000
-        
+
     def eval_metrics(self):
         return [
             metrics.Metrics.ACC, metrics.Metrics.ACC_TOP5,
             metrics.Metrics.ACC_PER_SEQ, metrics.Metrics.NEG_LOG_PERPLEXITY,
-            metrics.Metrics.APPROX_BLEU, metrics.Metrics.CHR_F3
+            metrics.Metrics.APPROX_BLEU
         ]
 
 

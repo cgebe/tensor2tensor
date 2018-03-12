@@ -29,6 +29,7 @@ import six
 # pylint: disable=redefined-builtin
 from six.moves import zip
 # pylint: enable=redefined-builtin
+from collections import defaultdict
 
 import tensorflow as tf
 
@@ -144,7 +145,7 @@ def fscore(total_ref, total_hyp, correct_total_hyp, max_order, recall_importance
     return (1 + recall_importance**2) * (precision * recall) / ((recall_importance**2 * precision) + recall)
 
 
-def extract_ngrams(segment, max_order, spaces=False):
+def extract_ngrams(segment, max_order):
     """Extracts all n-grams up to a given maximum order from an input segment.
     Args:
       segment: text segment from which n-grams will be extracted.
@@ -153,11 +154,6 @@ def extract_ngrams(segment, max_order, spaces=False):
     Returns:
       results: results according to rank, how often a specific ngram occured in the segment
     """
-    if not spaces:
-        segment = ''.join(segment.split())
-    else:
-        segment = segment.strip()
-
     results = defaultdict(lambda: defaultdict(int))
     for length in range(max_order):
         for start_pos in range(len(segment)):
