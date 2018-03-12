@@ -235,3 +235,19 @@ def multimodel_tiny():
   hparams.moe_n1 = 10
   hparams.moe_layers = "0"
   return hparams
+
+
+@registry.register_hparams
+def multimodel_512():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.batch_size = 512
+  return hparams
+
+
+@registry.register_hparams
+def multimodel_1024():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.batch_size = 1024
+  return hparams
