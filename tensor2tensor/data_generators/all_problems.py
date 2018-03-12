@@ -33,11 +33,13 @@ from tensor2tensor.data_generators import multinli
 from tensor2tensor.data_generators import problem_hparams
 from tensor2tensor.data_generators import ptb
 from tensor2tensor.data_generators import snli
+from tensor2tensor.data_generators import summarize_legal
 from tensor2tensor.data_generators import translate_encs
 from tensor2tensor.data_generators import translate_ende
 from tensor2tensor.data_generators import translate_enfr
 from tensor2tensor.data_generators import translate_enmk
 from tensor2tensor.data_generators import translate_enzh
+from tensor2tensor.data_generators import translate_legal
 from tensor2tensor.data_generators import wiki
 from tensor2tensor.data_generators import wsj_parsing
 
