@@ -236,6 +236,7 @@ def multimodel_tiny():
   hparams.moe_layers = "0"
   return hparams
 
+
 @registry.register_hparams
 def multimodel_tinyv2():
   """Tiny parameters for MultiModel."""
@@ -248,23 +249,38 @@ def multimodel_tinyv2():
   hparams.moe_layers = "0"
   return hparams
 
+
 @registry.register_hparams
 def multimodel_tinyv3():
   """Tiny parameters for MultiModel."""
   hparams = multimodel_base()
-  hparams.hidden_size = 256
+  hparams.hidden_size = 128
   hparams.filter_size = 512
   hparams.batch_size = 1024
   hparams.num_hidden_layers = 2
   hparams.moe_n1 = 10
-  hparams.moe_layers = "0"
+  hparams.moe_layers = "1"
   return hparams
+
 
 @registry.register_hparams
 def multimodel_tinyv4():
   """Tiny parameters for MultiModel."""
   hparams = multimodel_base()
-  hparams.hidden_size = 256
+  hparams.hidden_size = 128
+  hparams.filter_size = 512
+  hparams.batch_size = 1024
+  hparams.num_hidden_layers = 2
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "2"
+  return hparams
+
+
+@registry.register_hparams
+def multimodel_tinyv5():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
   hparams.filter_size = 1024
   hparams.batch_size = 1024
   hparams.num_hidden_layers = 2
@@ -273,83 +289,98 @@ def multimodel_tinyv4():
   return hparams
 
 @registry.register_hparams
-def multimodel_smallv1():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.hidden_size = 256
-  hparams.filter_size = 1024
-  hparams.batch_size = 2048
-  hparams.num_hidden_layers = 2
-  return hparams
-
-@registry.register_hparams
-def multimodel_smallv2():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.hidden_size = 256
-  hparams.filter_size = 2048
-  hparams.batch_size = 2048
-  hparams.num_hidden_layers = 2
-  return hparams
-
-@registry.register_hparams
-def multimodel_smallv3():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.hidden_size = 256
-  hparams.filter_size = 2048
-  hparams.batch_size = 2048
-  hparams.num_hidden_layers = 3
-  return hparams
-
-@registry.register_hparams
-def multimodel_smallv4():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.hidden_size = 512
-  hparams.filter_size = 2048
-  hparams.batch_size = 2048
-  hparams.num_hidden_layers = 3
-  return hparams
-
-@registry.register_hparams
-def multimodel_l2():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.num_hidden_layers = 2
-  return hparams
-
-@registry.register_hparams
-def multimodel_l3():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.num_hidden_layers = 3
-  return hparams
-
-@registry.register_hparams
-def multimodel_h128():
+def multimodel_tinyv6():
   """Tiny parameters for MultiModel."""
   hparams = multimodel_base()
   hparams.hidden_size = 128
-  return hparams
-
-@registry.register_hparams
-def multimodel_f512():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.filter_size = 512
-  return hparams
-
-@registry.register_hparams
-def multimodel_b512():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
-  hparams.batch_size = 512
-  return hparams
-
-@registry.register_hparams
-def multimodel_b1024():
-  """Tiny parameters for MultiModel."""
-  hparams = multimodel_base()
+  hparams.filter_size = 1024
   hparams.batch_size = 1024
+  hparams.num_hidden_layers = 2
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "1"
+  return hparams
+
+@registry.register_hparams
+def multimodel_tinyv7():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 1024
+  hparams.num_hidden_layers = 2
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "2"
+  return hparams
+
+@registry.register_hparams
+def multimodel_tinyv8():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 2048
+  hparams.num_hidden_layers = 2
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "0"
+  return hparams
+
+
+@registry.register_hparams
+def multimodel_tinyv9():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 1024
+  hparams.num_hidden_layers = 3
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "0"
+  return hparams
+
+@registry.register_hparams
+def multimodel_tinyv10():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 1024
+  hparams.num_hidden_layers = 3
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "1"
+  return hparams
+
+@registry.register_hparams
+def multimodel_tinyv11():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 2048
+  hparams.num_hidden_layers = 3
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "0"
+  return hparams
+
+@registry.register_hparams
+def multimodel_tinyv12():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 2048
+  hparams.num_hidden_layers = 3
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "1"
+  return hparams
+
+@registry.register_hparams
+def multimodel_tinyv13():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 2048
+  hparams.num_hidden_layers = 3
+  hparams.moe_n1 = 10
+  hparams.moe_layers = "2"
   return hparams
