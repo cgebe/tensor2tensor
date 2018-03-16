@@ -71,7 +71,7 @@ class LegalClassification(problem.Problem):
     compressed_filename = os.path.basename(self.URL)
     download_path = generator_utils.maybe_download(tmp_dir, compressed_filename,
                                                    self.URL)
-    imdb_dir = os.path.join(tmp_dir, "aclImdb")
+    gcd_dir = os.path.join(tmp_dir, "gcd")
     if not tf.gfile.Exists(imdb_dir):
       with tarfile.open(download_path, "r:gz") as tar:
         tar.extractall(tmp_dir)
