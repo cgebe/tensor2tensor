@@ -35,7 +35,8 @@ import tensorflow as tf
 EOS = text_encoder.EOS_ID
 
 DATASET = "https://transfer.sh/J95xx/gcd-classification.tar.gz"
-CLASSES = ["bag", "bfh", "bgh", "bpatg", "bsg", "bverfg", "bverwg"]
+DOC_CLASSES = ["verdict", "decision"]
+COURT_CLASSES = ["bag", "bfh", "bgh", "bpatg", "bsg", "bverfg", "bverwg"]
 
 @registry.register_problem
 class LegalClassification(problem.Problem):
@@ -51,10 +52,10 @@ class LegalClassification(problem.Problem):
 
   @property
   def targeted_vocab_size(self):
-    return 2**13  # 8k vocab suffices for this small dataset.
+    return 2**13
 
-  def doc_generator(self, imdb_dir, dataset, include_label=False):
-    dirs = [(os.path.join(imdb_dir, dataset, court), label) for label, court in enumerate(CLASSES)]
+  def doc_generator(self, imdb_dir, dataset, classes, include_label=False):
+    dirs = [(os.path.join(imdb_dir, dataset, c), label) for label, c in enumerate(classes)]
 
     for d, label in dirs:
       for filename in os.listdir(d):
@@ -65,30 +66,6 @@ class LegalClassification(problem.Problem):
           else:
             yield doc
 
-  def generator(self, data_dir, tmp_dir, train):
-    """Generate examples."""
-    # Download and extract
-    compressed_filename = os.path.basename(self.URL)
-    download_path = generator_utils.maybe_download(tmp_dir, compressed_filename,
-                                                   self.URL)
-    gcd_dir = os.path.join(tmp_dir, "gcd")
-    if not tf.gfile.Exists(imdb_dir):
-      with tarfile.open(download_path, "r:gz") as tar:
-        tar.extractall(tmp_dir)
-
-    # Generate vocab
-    encoder = generator_utils.get_or_generate_vocab_inner(
-        data_dir, self.vocab_file, self.targeted_vocab_size,
-        self.doc_generator(imdb_dir, "train"))
-
-    # Generate examples
-    dataset = "train" if train else "test"
-    for doc, label in self.doc_generator(imdb_dir, dataset, include_label=True):
-      yield {
-          "inputs": encoder.encode(doc) + [EOS],
-          "targets": [label],
-      }
-
   def generate_data(self, data_dir, tmp_dir, task_id=-1):
     train_paths = self.training_filepaths(
         data_dir, self.num_shards, shuffled=False)
@@ -96,15 +73,6 @@ class LegalClassification(problem.Problem):
     generator_utils.generate_dataset_and_shuffle(
         self.generator(data_dir, tmp_dir, True), train_paths,
         self.generator(data_dir, tmp_dir, False), dev_paths)
-
-  def hparams(self, defaults, unused_model_hparams):
-    p = defaults
-    source_vocab_size = self._encoders["inputs"].vocab_size
-    p.input_modality = {
-        "inputs": (registry.Modalities.SYMBOL, source_vocab_size)
-    }
-    p.target_modality = (registry.Modalities.CLASS_LABEL, 2)
-
 
   @property
   def input_space_id(self):
@@ -114,15 +82,6 @@ class LegalClassification(problem.Problem):
   def target_space_id(self):
       return problem.SpaceID.GENERIC
 
-
-  def feature_encoders(self, data_dir):
-    vocab_filename = os.path.join(data_dir, self.vocab_file)
-    encoder = text_encoder.SubwordTextEncoder(vocab_filename)
-    return {
-        "inputs": encoder,
-        "targets": text_encoder.ClassLabelEncoder(CLASSES),
-    }
-
   def example_reading_spec(self):
     data_fields = {
         "inputs": tf.VarLenFeature(tf.int64),
@@ -130,3 +89,105 @@ class LegalClassification(problem.Problem):
     }
     data_items_to_decoders = None
     return (data_fields, data_items_to_decoders)
+
+
+@registry.register_problem
+class CourtClassification(problem.Problem):
+  """Court Classification Problem."""
+
+  @property
+  def vocab_file(self):
+    return "vocab.multi.class"
+
+  def generator(self, data_dir, tmp_dir, train):
+    """Generate examples."""
+    # Download and extract
+    compressed_filename = os.path.basename(self.URL)
+    download_path = generator_utils.maybe_download(tmp_dir, compressed_filename,
+                                                   self.URL)
+    gcd_court_dir = os.path.join(tmp_dir, "gcd", "court")
+    if not tf.gfile.Exists(imdb_dir):
+      with tarfile.open(download_path, "r:gz") as tar:
+        tar.extractall(tmp_dir)
+
+    # Generate vocab
+    encoder = generator_utils.get_or_generate_vocab_inner(
+        data_dir, self.vocab_file, self.targeted_vocab_size,
+        self.doc_generator(imdb_dir, "train", COURT_CLASSES))
+
+    # Generate examples
+    dataset = "train" if train else "test"
+    for doc, label in self.doc_generator(imdb_dir, dataset, COURT_CLASSES, include_label=True):
+      yield {
+          "inputs": encoder.encode(doc) + [EOS],
+          "targets": [label],
+      }
+
+
+  def hparams(self, defaults, unused_model_hparams):
+    p = defaults
+    source_vocab_size = self._encoders["inputs"].vocab_size
+    p.input_modality = {
+        "inputs": (registry.Modalities.SYMBOL, source_vocab_size)
+    }
+    p.target_modality = (registry.Modalities.CLASS_LABEL, len(COURT_CLASSES))
+
+
+  def feature_encoders(self, data_dir):
+    vocab_filename = os.path.join(data_dir, self.vocab_file)
+    encoder = text_encoder.SubwordTextEncoder(vocab_filename)
+    return {
+        "inputs": encoder,
+        "targets": text_encoder.ClassLabelEncoder(COURT_CLASSES),
+    }
+
+
+@registry.register_problem
+class DocumentClassification(problem.Problem):
+  """Binary Document Classification Problem."""
+
+  @property
+  def vocab_file(self):
+    return "vocab.binary.class"
+
+  def generator(self, data_dir, tmp_dir, train):
+    """Generate examples."""
+    # Download and extract
+    compressed_filename = os.path.basename(self.URL)
+    download_path = generator_utils.maybe_download(tmp_dir, compressed_filename,
+                                                   self.URL)
+    gcd_court_dir = os.path.join(tmp_dir, "gcd", "doctype")
+    if not tf.gfile.Exists(imdb_dir):
+      with tarfile.open(download_path, "r:gz") as tar:
+        tar.extractall(tmp_dir)
+
+    # Generate vocab
+    encoder = generator_utils.get_or_generate_vocab_inner(
+        data_dir, self.vocab_file, self.targeted_vocab_size,
+        self.doc_generator(imdb_dir, "train", DOC_CLASSES))
+
+    # Generate examples
+    dataset = "train" if train else "test"
+    for doc, label in self.doc_generator(imdb_dir, dataset, DOC_CLASSES, include_label=True):
+      yield {
+          "inputs": encoder.encode(doc) + [EOS],
+          "targets": [label],
+      }
+
+
+  def hparams(self, defaults, unused_model_hparams):
+    p = defaults
+    source_vocab_size = self._encoders["inputs"].vocab_size
+    p.input_modality = {
+        "inputs": (registry.Modalities.SYMBOL, source_vocab_size)
+    }
+    p.target_modality = (registry.Modalities.CLASS_LABEL, len(DOC_CLASSES))
+
+
+  def feature_encoders(self, data_dir):
+    vocab_filename = os.path.join(data_dir, self.vocab_file)
+    encoder = text_encoder.SubwordTextEncoder(vocab_filename)
+    return {
+        "inputs": encoder,
+        "targets": text_encoder.ClassLabelEncoder(DOC_CLASSES),
+    }
