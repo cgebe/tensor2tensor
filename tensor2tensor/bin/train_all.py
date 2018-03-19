@@ -2,10 +2,10 @@ import os
 
 TRANSLATE_PROBLEMS = [
     #"translate_csde_legal32k",
-    "translate_csen_legal32k",
-    "translate_cses_legal32k",
-    "translate_csfr_legal32k",
-    "translate_csit_legal32k",
+    #"translate_csen_legal32k",
+    #"translate_cses_legal32k",
+    #"translate_csfr_legal32k",
+    #"translate_csit_legal32k",
     "translate_cssv_legal32k",
     "translate_deen_legal32k",
     "translate_dees_legal32k",
