@@ -1,0 +1,7 @@
+FROM tensorflow/tensorflow:1.6.0
+
+MAINTAINER Christoph Gebendorfer
+
+VOLUME ["/etc/tensor2tensor/train"]
+
+ENTRYPOINT ["tensorboard", "--logdir", "/etc/tensor2tensor/train"]
