@@ -442,9 +442,9 @@ def noisy_top_k_gating(x,
       noisy_logits = clean_logits + (
           tf.random_normal(tf.shape(clean_logits)) * noise_stddev)
       logits = noisy_logits
-      if not tf.get_variable_scope().reuse:
-        tf.summary.histogram("noisy_logits", noisy_logits)
-        tf.summary.histogram("noise_stddev", noise_stddev)
+      #if not tf.get_variable_scope().reuse:
+        #tf.summary.histogram("noisy_logits", noisy_logits)
+        #tf.summary.histogram("noise_stddev", noise_stddev)
     else:
       logits = clean_logits
     top_logits, top_indices = _my_top_k(logits, min(k + 1, num_experts))
@@ -461,9 +461,9 @@ def noisy_top_k_gating(x,
                          k), 0)
     else:
       load = _gates_to_load(gates)
-    if not tf.get_variable_scope().reuse:
-      tf.summary.histogram("importance", tf.reduce_sum(gates, 0))
-      tf.summary.histogram("load", load)
+    #if not tf.get_variable_scope().reuse:
+      #tf.summary.histogram("importance", tf.reduce_sum(gates, 0))
+      #tf.summary.histogram("load", load)
     return gates, load
 
 
