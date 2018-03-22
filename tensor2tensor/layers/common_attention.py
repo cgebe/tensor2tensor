@@ -652,7 +652,7 @@ def attention_image_summary(attn, image_shapes=None):
       image = tf.reshape(image, [
           -1, q_rows * m_rows * q_channnels, q_cols * m_cols * m_channels, 3
       ])
-  #tf.summary.image("attention", image, max_outputs=1)
+  tf.summary.image("attention", image, max_outputs=1)
 
 
 def grouped_attention_multihead(query_antecedent,

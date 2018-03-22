@@ -195,6 +195,7 @@ class T2TModel(object):
     """
     # TODO(rsepassi): Make decoding work with real-valued model outputs
     # (i.e. if the target modality is RealModality).
+    _remove_summaries()
     if not self.has_input:
       # since there is no input, it is more interesting to see randomly
       # generated sequences, than to see the most likely sequence repeatedly.
@@ -721,3 +722,10 @@ def _warn_changed_modality_type(new_name, old_name, feature_name):
     tf.logging.warning("%s has a designated modality type %s (%s) but has been "
                        "overridden with a modality of type %s (%s).",
                        feature_name, old_type, old_name, new_type, new_name)
+
+
+def _remove_summaries():
+  g = tf.get_default_graph()
+  key = tf.GraphKeys.SUMMARIES
+  del g.get_collection_ref(key)[:]
+  assert not g.get_collection(key)
