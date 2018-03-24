@@ -5,7 +5,7 @@ TRANSLATE_PROBLEMS = [
     #"translate_csen_legal32k",
     #"translate_cses_legal32k",
     #"translate_csfr_legal32k",
-    #"translate_csit_legal32k",
+    "translate_csit_legal32k",
     #"translate_cssv_legal32k",
     #"translate_deen_legal32k",
     #"translate_dees_legal32k",
@@ -28,10 +28,10 @@ TRANSLATE_PROBLEMS = [
 def main():
     for problem in TRANSLATE_PROBLEMS:
         os.system("mkdir -p $TRAIN_DIR/translate/"+problem);
-        successful = false
+        successful = False
         while not successful:
             numbers = []
-            for f in os.listdir("$TRAIN_DIR/translate/"+problem):
+            for f in os.listdir(os.environ['TRAIN_DIR']+"/translate/"+problem):
                 if f.endswith(".index"):
                     numbers.append(int(f.split("-")[1].split(".")[0]))
             if (len(numbers)) > 0 :
@@ -40,8 +40,8 @@ def main():
                 steps = 250000
 
             print(steps)
-            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate/"+problem+" --output_dir=$TRAIN_DIR/translate/"+problem+" --worker_gpu=4 --training_steps="+steps+" --model=multi_model --hparams_set=multimodel_legal --problems="+problem
+            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate/"+problem+" --output_dir=$TRAIN_DIR/translate/"+problem+" --worker_gpu=4 --training_steps="+str(steps)+" --model=multi_model --hparams_set=multimodel_legal --problems="+problem
             if os.system(cmd) == 0:
-                successful = true
+                successful = True
 
 main()
