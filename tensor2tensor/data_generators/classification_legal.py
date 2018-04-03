@@ -34,9 +34,38 @@ import tensorflow as tf
 # End-of-sentence marker.
 EOS = text_encoder.EOS_ID
 
-DATASET = "https://transfer.sh/J95xx/gcd-classification.tar.gz"
-DOC_CLASSES = ["verdict", "decision"]
-COURT_CLASSES = ["bag", "bfh", "bgh", "bpatg", "bsg", "bverfg", "bverwg"]
+_TRAIN_DATASETS = {
+    "facts-courts": [
+        [
+            "https://transfer.sh/iEDNA/gcd.facts-courts.tar.gz",
+            ("gcd.facts", "gcd.courts")
+        ],
+    ],
+    "reasons-types": [
+        [
+            "https://transfer.sh/iEDNA/gcd.facts-courts.tar.gz",
+            ("gcd.reasons", "gcd.types")
+        ],
+    ]
+}
+
+_TEST_DATASETS = {
+    "facts-courts": [
+        [
+            "https://transfer.sh/iEDNA/gcd.facts-courts.tar.gz",
+            ("gcd.facts-test", "gcd.courts-test")
+        ],
+    ],
+    "reasons-types": [
+        [
+            "https://transfer.sh/iEDNA/gcd.facts-courts.tar.gz",
+            ("gcd.reasons-test", "gcd.types-test")
+        ],
+    ]
+}
+
+_TYPE_CLASSES = ["verdict", "resolution"]
+_COURT_CLASSES = ["bag", "bfh", "bgh", "bpatg", "bsg", "bverfg", "bverwg"]
 
 @registry.register_problem
 class LegalClassification(problem.Problem):
@@ -52,19 +81,32 @@ class LegalClassification(problem.Problem):
 
   @property
   def targeted_vocab_size(self):
-    return 2**13
+    return 32000
 
   def doc_generator(self, imdb_dir, dataset, classes, include_label=False):
-    dirs = [(os.path.join(imdb_dir, dataset, c), label) for label, c in enumerate(classes)]
+    for source in sources:
+      url = source[0]
+      filename = os.path.basename(url)
+      compressed_file = maybe_download(tmp_dir, filename, url)
 
-    for d, label in dirs:
-      for filename in os.listdir(d):
-        with tf.gfile.Open(os.path.join(d, filename)) as gcd:
-          doc = gcd.read().strip()
-          if include_label:
-            yield doc, label
-          else:
-            yield doc
+      for file in source[1]:
+        tf.logging.info("Reading file: %s" % file)
+        filepath = os.path.join(tmp_dir, file)
+
+        # Extract from tar if needed.
+        if not tf.gfile.Exists(filepath):
+          read_type = "r:gz" if filename.endswith("tgz") else "r"
+          with tarfile.open(compressed_file, read_type) as corpus_tar:
+            corpus_tar.extractall(tmp_dir)
+
+      with open(source[1][0]) as input_file, open(source[1][1]) as target_file:
+          for input, target in zip(input_file, target_file):
+              input = input.strip()
+              if include_label:
+                label = classes.index(target.strip())
+                yield doc, label
+              else:
+                yield doc
 
   def generate_data(self, data_dir, tmp_dir, task_id=-1):
     train_paths = self.training_filepaths(
@@ -103,8 +145,7 @@ class CourtClassification(problem.Problem):
     """Generate examples."""
     # Download and extract
     compressed_filename = os.path.basename(self.URL)
-    download_path = generator_utils.maybe_download(tmp_dir, compressed_filename,
-                                                   self.URL)
+    download_path = generator_utils.maybe_download(tmp_dir, compressed_filename, self.URL)
     gcd_court_dir = os.path.join(tmp_dir, "gcd", "court")
     if not tf.gfile.Exists(imdb_dir):
       with tarfile.open(download_path, "r:gz") as tar:
@@ -113,11 +154,11 @@ class CourtClassification(problem.Problem):
     # Generate vocab
     encoder = generator_utils.get_or_generate_vocab_inner(
         data_dir, self.vocab_file, self.targeted_vocab_size,
-        self.doc_generator(imdb_dir, "train", COURT_CLASSES))
+        self.doc_generator(tmp_dir, _TRAIN_DATASETS["facts-courts"], _COURT_CLASSES))
 
     # Generate examples
-    dataset = "train" if train else "test"
-    for doc, label in self.doc_generator(imdb_dir, dataset, COURT_CLASSES, include_label=True):
+    datasets = _TRAIN_DATASETS["facts-courts"] if train else _TEST_DATASETS["facts-courts"]
+    for doc, label in self.doc_generator(tmp_dir, datasets, _COURT_CLASSES, include_label=True):
       yield {
           "inputs": encoder.encode(doc) + [EOS],
           "targets": [label],
@@ -130,7 +171,7 @@ class CourtClassification(problem.Problem):
     p.input_modality = {
         "inputs": (registry.Modalities.SYMBOL, source_vocab_size)
     }
-    p.target_modality = (registry.Modalities.CLASS_LABEL, len(COURT_CLASSES))
+    p.target_modality = (registry.Modalities.CLASS_LABEL, len(_COURT_CLASSES))
 
 
   def feature_encoders(self, data_dir):
@@ -138,7 +179,7 @@ class CourtClassification(problem.Problem):
     encoder = text_encoder.SubwordTextEncoder(vocab_filename)
     return {
         "inputs": encoder,
-        "targets": text_encoder.ClassLabelEncoder(COURT_CLASSES),
+        "targets": text_encoder.ClassLabelEncoder(_COURT_CLASSES),
     }
 
 
@@ -164,11 +205,11 @@ class DocumentClassification(problem.Problem):
     # Generate vocab
     encoder = generator_utils.get_or_generate_vocab_inner(
         data_dir, self.vocab_file, self.targeted_vocab_size,
-        self.doc_generator(imdb_dir, "train", DOC_CLASSES))
+        self.doc_generator(imdb_dir, "train", _TYPE_CLASSES))
 
     # Generate examples
     dataset = "train" if train else "test"
-    for doc, label in self.doc_generator(imdb_dir, dataset, DOC_CLASSES, include_label=True):
+    for doc, label in self.doc_generator(imdb_dir, dataset, _TYPE_CLASSES, include_label=True):
       yield {
           "inputs": encoder.encode(doc) + [EOS],
           "targets": [label],
@@ -181,7 +222,7 @@ class DocumentClassification(problem.Problem):
     p.input_modality = {
         "inputs": (registry.Modalities.SYMBOL, source_vocab_size)
     }
-    p.target_modality = (registry.Modalities.CLASS_LABEL, len(DOC_CLASSES))
+    p.target_modality = (registry.Modalities.CLASS_LABEL, len(_TYPE_CLASSES))
 
 
   def feature_encoders(self, data_dir):
@@ -189,5 +230,5 @@ class DocumentClassification(problem.Problem):
     encoder = text_encoder.SubwordTextEncoder(vocab_filename)
     return {
         "inputs": encoder,
-        "targets": text_encoder.ClassLabelEncoder(DOC_CLASSES),
+        "targets": text_encoder.ClassLabelEncoder(_TYPE_CLASSES),
     }

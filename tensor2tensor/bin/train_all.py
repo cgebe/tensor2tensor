@@ -12,16 +12,18 @@ TRANSLATE_PROBLEMS = [
     #"translate_defr_legal32k",
     #"translate_deit_legal32k",
     #"translate_desv_legal32k",
-    "translate_enes_legal32k",
-    "translate_enfr_legal32k",
-    "translate_enit_legal32k",
-    "translate_ensv_legal32k",
-    "translate_esfr_legal32k",
-    "translate_esit_legal32k",
-    "translate_essv_legal32k",
-    "translate_frit_legal32k",
-    "translate_frsv_legal32k",
-    "translate_itsv_legal32k"
+    #"translate_enes_legal32k",
+    #"translate_enfr_legal32k",
+    #"translate_enit_legal32k",
+    #"translate_ensv_legal32k",
+    #"translate_esfr_legal32k",
+    #"translate_esit_legal32k",
+    #"translate_essv_legal32k",
+    #"translate_frit_legal32k",
+    #"translate_frsv_legal32k",
+    "translate_itsv_legal32k",
+    "translate_deit_legal32k",
+    "translate_desv_legal32k"
 ]
 
 
