@@ -316,11 +316,13 @@ def model_fn(model,
       del summaries[i]
 
   tf.logging.info("Global model_fn finished.")
+  #logging_hook = tf.train.LoggingTensorHook({"loss" : loss}, every_n_iter=10)
   return tf.estimator.EstimatorSpec(
       mode,
       predictions={"problem_choice": features["problem_choice"]},
       loss=total_loss,
       train_op=train_op)
+      #training_hooks = [logging_hook])
 
 
 def build_model_fn(model, **kwargs):

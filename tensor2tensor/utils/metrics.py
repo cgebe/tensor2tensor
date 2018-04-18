@@ -183,8 +183,10 @@ def padded_accuracy(predictions,
                     weights_fn=common_layers.weights_nonzero):
   """Percentage of times that predictions matches labels on non-0s."""
   with tf.variable_scope("padded_accuracy", values=[predictions, labels]):
-    padded_predictions, padded_labels = common_layers.pad_with_zeros(
-        predictions, labels)
+    #a = tf.Print(predictions, [predictions], message="This is predictions: ")
+    #c = tf.Print(predictions, [predictions], message="This is predictions: ")
+    padded_predictions, padded_labels = common_layers.pad_with_zeros(predictions, labels)
+    #b = tf.Print(padded_predictions, [padded_predictions], message="This is padded_predictions: ")
     weights = weights_fn(padded_labels)
     outputs = tf.to_int32(tf.argmax(padded_predictions, axis=-1))
     padded_labels = tf.to_int32(padded_labels)

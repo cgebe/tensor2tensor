@@ -199,13 +199,13 @@ class ClassLabelEncoder(TextEncoder):
     self._class_labels = class_labels
 
   def encode(self, label_str):
-    return self._class_labels.index(label_str)
+    return self._class_labels.index(label_str) + 1
 
   def decode(self, label_id):
     if isinstance(label_id, list):
       assert len(label_id) == 1
       label_id, = label_id
-    return self._class_labels[label_id]
+    return self._class_labels[label_id - 1]
 
   @property
   def vocab_size(self):

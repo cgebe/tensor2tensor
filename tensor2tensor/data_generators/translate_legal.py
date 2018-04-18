@@ -283,7 +283,7 @@ _TRAIN_DATASETS = {
             ("dcep.es-sv.es", "dcep.es-sv.sv")
         ],
         [
-            "https://transfer.sh/LZVzV/europarl-v7.es-sv.tar.gz",
+            "https://transfer.sh/12uz0o/europarl-v7.es-sv.tar.gz",
             ("europarl-v7.es-sv.es", "europarl-v7.es-sv.sv")
         ],
         [
@@ -580,7 +580,7 @@ _TEST_DATASETS = {
             ("dcep.es-sv-test.es", "dcep.es-sv-test.sv")
         ],
         [
-            "https://transfer.sh/dhWfn/europarl-v7.es-sv-test.tar.gz",
+            "https://transfer.sh/EYEPd/europarl-v7.es-sv-test.tar.gz",
             ("europarl-v7.es-sv-test.es", "europarl-v7.es-sv-test.sv")
         ],
         [
@@ -1071,7 +1071,7 @@ class TranslateEsitLegal32k(TranslateLegal32k):
 
     @property
     def vocab_name(self):
-        return "vocab.enit"
+        return "vocab.esit"
 
     def generator(self, data_dir, tmp_dir, train):
         symbolizer_vocab = generator_utils.get_or_generate_vocab(

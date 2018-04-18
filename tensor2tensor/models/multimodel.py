@@ -245,3 +245,16 @@ def multimodel_legal():
   hparams.filter_size = 1024
   hparams.batch_size = 1024
   return hparams
+
+
+@registry.register_hparams
+def multimodel_legal2():
+  """Tiny parameters for MultiModel."""
+  hparams = multimodel_base()
+  hparams.hidden_size = 128
+  hparams.filter_size = 1024
+  hparams.batch_size = 32
+  hparams.dropout = 0.50
+  hparams.learning_rate = 0.0001
+  hparams.learning_rate_warmup_steps = 0
+  return hparams

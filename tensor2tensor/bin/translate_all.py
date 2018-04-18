@@ -7,7 +7,7 @@ TRANSLATE_PROBLEMS = [
     #"translate_csfr_legal32k",
     #"translate_csit_legal32k",
     #"translate_cssv_legal32k",
-    #"translate_deen_legal32k",
+    "translate_deen_legal32k",
     #"translate_dees_legal32k",
     #"translate_defr_legal32k",
     #"translate_deit_legal32k",
@@ -21,9 +21,9 @@ TRANSLATE_PROBLEMS = [
     #"translate_essv_legal32k",
     #"translate_frit_legal32k",
     #"translate_frsv_legal32k",
-    "translate_itsv_legal32k",
-    "translate_deit_legal32k",
-    "translate_desv_legal32k"
+    #"translate_itsv_legal32k",
+    #"translate_deit_legal32k",
+    #"translate_desv_legal32k"
 ]
 
 
@@ -37,9 +37,9 @@ def main():
                 if f.endswith(".index"):
                     numbers.append(int(f.split("-")[1].split(".")[0]))
             if (len(numbers)) > 0 :
-                steps = 250000 - max(numbers)
+                steps = 500000 - max(numbers)
             else:
-                steps = 250000
+                steps = 500000
 
             print(steps)
             cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate/"+problem+" --output_dir=$TRAIN_DIR/translate/"+problem+" --worker_gpu=4 --training_steps="+str(steps)+" --model=multi_model --hparams_set=multimodel_legal --problems="+problem

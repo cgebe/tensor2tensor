@@ -1,12 +1,10 @@
-FROM tensorflow/tensorflow:1.6.0-gpu
+FROM python:3-stretch
 
 MAINTAINER Christoph Gebendorfer
 
-RUN pip install sympy && \
-    pip install requests && \
-    pip install bz2file
+RUN pip3 install sacrebleu
 
-COPY . /etc/tensor2tensor
+COPY . /etc/pscripts
 ENV PYTHONPATH /etc/tensor2tensor
 ENV TMP_DIR /tmp/t2t_datagen
 
@@ -18,6 +16,6 @@ ENV TRAIN_DIR /etc/tensor2tensor/train
 ENV DECODE_DIR /etc/tensor2tensor/decode
 VOLUME ["/etc/tensor2tensor/data", "/etc/tensor2tensor/train", "/etc/tensor2tensor/decode"]
 
-WORKDIR /etc/tensor2tensor/tensor2tensor/bin
+WORKDIR /etc/pscripts
 
 ENTRYPOINT ["/bin/bash"]
