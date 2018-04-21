@@ -71,7 +71,7 @@ _COURT_CLASSES = ["bag", "bfh", "bgh", "bpatg", "bsg", "bverfg", "bverwg"]
 
 
 @registry.register_problem
-class LegalClassification(problem.Text2TeextProblem):
+class LegalClassification(problem.Problem):
     """Legal Classification Problem."""
 
     @property
@@ -87,6 +87,7 @@ class LegalClassification(problem.Text2TeextProblem):
         return 32000
 
     def doc_generator(self, tmp_dir, datasets, classes, include_label=False):
+        label_encoder = text_encoder.ClassLabelEncoder(class_labels=classes)
         for source in datasets:
             url = source[0]
             filename = os.path.basename(url)
@@ -106,7 +107,7 @@ class LegalClassification(problem.Text2TeextProblem):
                 for input, target in zip(input_file, target_file):
                     input = input.strip()
                     if include_label:
-                        yield input, target.strip()
+                        yield input, label_encoder.encode(target.strip())
                     else:
                         yield input
 
@@ -124,12 +125,21 @@ class LegalClassification(problem.Text2TeextProblem):
 
     @property
     def target_space_id(self):
-        return problem.SpaceID.EN_TOK
+        return problem.SpaceID.GENERIC
+
+    def example_reading_spec(self):
+        data_fields = {
+            "inputs": tf.VarLenFeature(tf.int64),
+            "targets": tf.FixedLenFeature([1], tf.int64),
+        }
+        data_items_to_decoders = None
+        return (data_fields, data_items_to_decoders)
 
     def eval_metrics(self):
         return [
-            metrics.Metrics.ACC, metrics.Metrics.ACC_TOP5,
-            metrics.Metrics.ACC_PER_SEQ, metrics.Metrics.NEG_LOG_PERPLEXITY
+            metrics.Metrics.SIGMOID_ACCURACY_ONE_HOT, metrics.Metrics.SIGMOID_PRECISION_ONE_HOT,
+            metrics.Metrics.SIGMOID_RECALL_ONE_HOT,
+            metrics.Metrics.NEG_LOG_PERPLEXITY
         ]
 
 
@@ -176,7 +186,6 @@ class CourtClassification(LegalClassification):
             "targets": text_encoder.ClassLabelEncoder(class_labels=_COURT_CLASSES),
         }
 
-"""
 @registry.register_problem
 class VerdictClassification(LegalClassification):
     """Binary Verdict Classification Problem."""
@@ -207,8 +216,6 @@ class VerdictClassification(LegalClassification):
             "inputs": (registry.Modalities.SYMBOL, source_vocab_size)
         }
         p.target_modality = (registry.Modalities.CLASS_LABEL, len(_RESULT_CLASSES))
-        p.input_space_id = self.input_space_id
-        p.target_space_id = self.target_space_id
 
     def feature_encoders(self, data_dir):
         vocab_filename = os.path.join(data_dir, self.vocab_file)
@@ -217,27 +224,3 @@ class VerdictClassification(LegalClassification):
             "inputs": encoder,
             "targets": text_encoder.ClassLabelEncoder(_RESULT_CLASSES),
         }
-"""
-
-@registry.register_problem
-class VerdictClassification(LegalClassification):
-    """Binary Verdict Classification Problem."""
-
-    @property
-    def vocab_file(self):
-        return "vocab.verdict.class"
-
-    def generator(self, data_dir, tmp_dir, train):
-        """Generate examples."""
-        # Generate vocab
-        encoder = generator_utils.get_or_generate_vocab_inner(
-            data_dir, self.vocab_file, self.targeted_vocab_size,
-            self.doc_generator(tmp_dir, _TRAIN_DATASETS["facts-result"])
-
-        # Generate examples
-        datasets = _TRAIN_DATASETS["facts-result"] if train else _TEST_DATASETS["facts-result"]
-        for doc, label in self.doc_generator(tmp_dir, datasets, include_label=True):
-            yield {
-                "inputs": encoder.encode(doc) + [EOS],
-                "targets": encoder.encode(label) + [EOS],
-            }

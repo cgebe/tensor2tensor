@@ -131,6 +131,7 @@ class MultiModel(t2t_model.T2TModel):
     # If we're just predicing a class, there is no use for a decoder, return.
     if isinstance(hparams.problems[self._problem_idx].target_modality,
                   modalities.ClassLabelModality):
+      print("correctly decoded")
       return inputs_encoded, tf.reduce_mean(expert_loss)
 
     # Decoder.
@@ -244,6 +245,7 @@ def multimodel_legal():
   hparams.hidden_size = 128
   hparams.filter_size = 1024
   hparams.batch_size = 1024
+  hparams.label_smoothing = 0.0
   return hparams
 
 
@@ -253,7 +255,7 @@ def multimodel_legal2():
   hparams = multimodel_base()
   hparams.hidden_size = 128
   hparams.filter_size = 1024
-  hparams.batch_size = 32
+  hparams.batch_size = 1024
   hparams.dropout = 0.50
   hparams.learning_rate = 0.0001
   hparams.learning_rate_warmup_steps = 0

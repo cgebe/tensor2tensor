@@ -6,6 +6,9 @@ RUN pip install sympy && \
     pip install requests && \
     pip install bz2file
 
+RUN apt-get update && \
+    apt-get install nano -y
+
 COPY . /etc/tensor2tensor
 ENV PYTHONPATH /etc/tensor2tensor
 ENV TMP_DIR /tmp/t2t_datagen

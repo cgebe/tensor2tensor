@@ -266,12 +266,14 @@ def model_fn(model,
   if hparams.weight_decay > 0.0:
     total_loss += weight_decay_loss * hparams.weight_decay
 
+  """
   # The new data reader occasionally emits very small batches, which
   # cause the examples in those batches to be grossly overweighted.
   # We decrease the loss proportionally to the ratio of the size of this
   # batch to the size of the largest training batch ever.
   # TODO(noam): to be more sophisticated, we could keep separate
   # maxima based on problem choice.
+  total_loss = tf.Print(total_loss, [total_loss], "total_loss_pre")
   max_nonpadding_var = tf.get_variable(
       "max_nonpadding",
       shape=[],
@@ -282,7 +284,7 @@ def model_fn(model,
     small_batch_multiplier = targets_nonpadding_tokens / max_nonpadding
   tf.summary.scalar("small_batch_multiplier", small_batch_multiplier)
   total_loss *= small_batch_multiplier
-
+  """
   # Log variable sizes
   _log_variable_sizes(tf.trainable_variables(), "Trainable Variables")
   diet_vars = [
@@ -292,6 +294,7 @@ def model_fn(model,
 
   # Optimize
   total_loss = tf.identity(total_loss, name="total_loss")
+  total_loss = tf.Print(total_loss, [total_loss], "total_loss")
   opt = ConditionalOptimizer(hparams.optimizer, learning_rate, hparams)
   opt_summaries = ["learning_rate", "loss"]
   if hparams.summarize_grads:
@@ -316,13 +319,11 @@ def model_fn(model,
       del summaries[i]
 
   tf.logging.info("Global model_fn finished.")
-  #logging_hook = tf.train.LoggingTensorHook({"loss" : loss}, every_n_iter=10)
   return tf.estimator.EstimatorSpec(
       mode,
       predictions={"problem_choice": features["problem_choice"]},
       loss=total_loss,
       train_op=train_op)
-      #training_hooks = [logging_hook])
 
 
 def build_model_fn(model, **kwargs):

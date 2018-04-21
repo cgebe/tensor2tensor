@@ -42,6 +42,10 @@ class Metrics(object):
   R2 = "r_squared"
   ROUGE_2_F = "rouge_2_fscore"
   ROUGE_L_F = "rouge_L_fscore"
+  SIGMOID_ACCURACY_ONE_HOT = "sigmoid_accuracy_one_hot"
+  SIGMOID_RECALL_ONE_HOT = "sigmoid_recall_one_hot"
+  SIGMOID_PRECISION_ONE_HOT = "sigmoid_precision_one_hot"
+  SIGMOID_CROSS_ENTROPY_ONE_HOT = "sigmoid_cross_entropy_one_hot"
   EDIT_DISTANCE = "edit_distance"
   SET_PRECISION = "set_precision"
   SET_RECALL = "set_recall"
@@ -183,10 +187,7 @@ def padded_accuracy(predictions,
                     weights_fn=common_layers.weights_nonzero):
   """Percentage of times that predictions matches labels on non-0s."""
   with tf.variable_scope("padded_accuracy", values=[predictions, labels]):
-    #a = tf.Print(predictions, [predictions], message="This is predictions: ")
-    #c = tf.Print(predictions, [predictions], message="This is predictions: ")
     padded_predictions, padded_labels = common_layers.pad_with_zeros(predictions, labels)
-    #b = tf.Print(padded_predictions, [padded_predictions], message="This is padded_predictions: ")
     weights = weights_fn(padded_labels)
     outputs = tf.to_int32(tf.argmax(padded_predictions, axis=-1))
     padded_labels = tf.to_int32(padded_labels)
@@ -240,6 +241,90 @@ def set_recall(predictions,
     labels = tf.cast(labels, tf.bool)
     return tf.to_float(tf.equal(labels, predictions)), weights
 
+
+def sigmoid_accuracy_one_hot(logits, labels, weights_fn=None):
+  """Calculate accuracy for a set, given one-hot labels and logits.
+  Args:
+    logits: Tensor of size [batch-size, o=1, p=1, num-classes]
+    labels: Tensor of size [batch-size, o=1, p=1, num-classes]
+    weights_fn: Function that takes in labels and weighs examples (unused)
+  Returns:
+    accuracy (scalar), weights
+  """
+  with tf.variable_scope("sigmoid_accuracy_one_hot", values=[logits, labels]):
+    del weights_fn
+    num_classes = logits.shape[-1]
+    labels = tf.one_hot(tf.cast(labels, tf.int32), depth=num_classes, on_value=1.0, off_value=0.0)
+    predictions = tf.nn.sigmoid(logits)
+    labels = tf.argmax(labels, -1)
+    predictions = tf.argmax(predictions, -1)
+    _, accuracy = tf.metrics.accuracy(labels=labels, predictions=predictions)
+    return accuracy, tf.constant(1.0)
+
+
+def sigmoid_precision_one_hot(logits, labels, weights_fn=None):
+  """Calculate precision for a set, given one-hot labels and logits.
+  Predictions are converted to one-hot,
+  as predictions[example][arg-max(example)] = 1
+  Args:
+    logits: Tensor of size [batch-size, o=1, p=1, num-classes]
+    labels: Tensor of size [batch-size, o=1, p=1, num-classes]
+    weights_fn: Function that takes in labels and weighs examples (unused)
+  Returns:
+    precision (scalar), weights
+  """
+  with tf.variable_scope("sigmoid_precision_one_hot", values=[logits, labels]):
+    del weights_fn
+    num_classes = logits.shape[-1]
+    labels = tf.one_hot(tf.cast(labels, tf.int32), depth=num_classes, on_value=1.0, off_value=0.0)
+    predictions = tf.nn.sigmoid(logits)
+    predictions = tf.argmax(predictions, -1)
+    predictions = tf.one_hot(predictions, num_classes)
+    predictions = tf.Print(predictions, [predictions], "pred")
+    labels = tf.Print(labels, [labels], "labels")
+    _, precision = tf.metrics.precision(labels=labels, predictions=predictions)
+    return precision, tf.constant(1.0)
+
+
+def sigmoid_recall_one_hot(logits, labels, weights_fn=None):
+  """Calculate recall for a set, given one-hot labels and logits.
+  Predictions are converted to one-hot,
+  as predictions[example][arg-max(example)] = 1
+  Args:
+    logits: Tensor of size [batch-size, o=1, p=1, num-classes]
+    labels: Tensor of size [batch-size, o=1, p=1, num-classes]
+    weights_fn: Function that takes in labels and weighs examples (unused)
+  Returns:
+    recall (scalar), weights
+  """
+  with tf.variable_scope("sigmoid_recall_one_hot", values=[logits, labels]):
+    del weights_fn
+    num_classes = logits.shape[-1]
+    labels = tf.one_hot(tf.cast(labels, tf.int32), depth=num_classes, on_value=1.0, off_value=0.0)
+    predictions = tf.nn.sigmoid(logits)
+    predictions = tf.argmax(predictions, -1)
+    predictions = tf.one_hot(predictions, num_classes)
+    _, recall = tf.metrics.recall(labels=labels, predictions=predictions)
+    return recall, tf.constant(1.0)
+
+
+def sigmoid_cross_entropy_one_hot(logits, labels, weights_fn=None):
+  """Calculate sigmoid cross entropy for one-hot lanels and logits.
+  Args:
+    logits: Tensor of size [batch-size, o=1, p=1, num-classes]
+    labels: Tensor of size [batch-size, o=1, p=1, num-classes]
+    weights_fn: Function that takes in labels and weighs examples (unused)
+  Returns:
+    cross_entropy (scalar), weights
+  """
+  with tf.variable_scope("sigmoid_cross_entropy_one_hot",
+                         values=[logits, labels]):
+    del weights_fn
+    num_classes = logits.shape[-1]
+    labels = tf.one_hot(tf.cast(labels, tf.int32), depth=num_classes, on_value=1.0, off_value=0.0)
+    cross_entropy = tf.losses.sigmoid_cross_entropy(
+        multi_class_labels=labels, logits=logits)
+    return cross_entropy, tf.constant(1.0)
 
 def create_evaluation_metrics(problems, model_hparams):
   """Creates the evaluation metrics for the model.
@@ -332,6 +417,10 @@ METRICS_FNS = {
     Metrics.R2: padded_variance_explained,
     Metrics.ROUGE_2_F: rouge.rouge_2_fscore,
     Metrics.ROUGE_L_F: rouge.rouge_l_fscore,
+    Metrics.SIGMOID_ACCURACY_ONE_HOT: sigmoid_accuracy_one_hot,
+    Metrics.SIGMOID_RECALL_ONE_HOT: sigmoid_recall_one_hot,
+    Metrics.SIGMOID_PRECISION_ONE_HOT: sigmoid_precision_one_hot,
+    Metrics.SIGMOID_CROSS_ENTROPY_ONE_HOT: sigmoid_cross_entropy_one_hot,
     Metrics.EDIT_DISTANCE: sequence_edit_distance,
     Metrics.SET_PRECISION: set_precision,
     Metrics.SET_RECALL: set_recall,
