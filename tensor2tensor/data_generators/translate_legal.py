@@ -338,7 +338,7 @@ _TRAIN_DATASETS = {
 _TEST_DATASETS = {
     "cs-de": [
         [
-            "https://transfer.sh/A1DDK/dcep.cs-de-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.cs-de-test.cs", "dcep.cs-de-test.de")
         ],
         [
@@ -352,7 +352,7 @@ _TEST_DATASETS = {
     ],
     "cs-en": [
         [
-            "https://transfer.sh/u6K9T/dcep.cs-en-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.cs-en-test.cs", "dcep.cs-en-test.en")
         ],
         [
@@ -366,7 +366,7 @@ _TEST_DATASETS = {
     ],
     "cs-es": [
         [
-            "https://transfer.sh/7SadY/dcep.cs-es-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.cs-es-test.cs", "dcep.cs-es-test.es")
         ],
         [
@@ -380,7 +380,7 @@ _TEST_DATASETS = {
     ],
     "cs-fr": [
         [
-            "https://transfer.sh/V2Fw8/dcep.cs-fr-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.cs-fr-test.cs", "dcep.cs-fr-test.fr")
         ],
         [
@@ -394,7 +394,7 @@ _TEST_DATASETS = {
     ],
     "cs-it": [
         [
-            "https://transfer.sh/xHCxP/dcep.cs-it-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.cs-it-test.cs", "dcep.cs-it-test.it")
         ],
         [
@@ -408,7 +408,7 @@ _TEST_DATASETS = {
     ],
     "cs-sv": [
         [
-            "https://transfer.sh/If8hi/dcep.cs-sv-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.cs-sv-test.cs", "dcep.cs-sv-test.sv")
         ],
         [
@@ -422,7 +422,7 @@ _TEST_DATASETS = {
     ],
     "de-en": [
         [
-            "https://transfer.sh/CIPrk/dcep.de-en-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.de-en-test.de", "dcep.de-en-test.en")
         ],
         [
@@ -436,7 +436,7 @@ _TEST_DATASETS = {
     ],
     "de-es": [
         [
-            "https://transfer.sh/PJ7H/dcep.de-es-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.de-es-test.de", "dcep.de-es-test.es")
         ],
         [
@@ -450,7 +450,7 @@ _TEST_DATASETS = {
     ],
     "de-fr": [
         [
-            "https://transfer.sh/SKaTU/dcep.de-fr-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.de-fr-test.de", "dcep.de-fr-test.fr")
         ],
         [
@@ -464,7 +464,7 @@ _TEST_DATASETS = {
     ],
     "de-it": [
         [
-            "https://transfer.sh/uB9rW/dcep.de-it-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.de-it-test.de", "dcep.de-it-test.it")
         ],
         [
@@ -478,7 +478,7 @@ _TEST_DATASETS = {
     ],
     "de-sv": [
         [
-            "https://transfer.sh/PoAam/dcep.de-sv-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.de-sv-test.de", "dcep.de-sv-test.sv")
         ],
         [
@@ -492,7 +492,7 @@ _TEST_DATASETS = {
     ],
     "en-es": [
         [
-            "https://transfer.sh/m5OIV/dcep.en-es-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.en-es-test.en", "dcep.en-es-test.es")
         ],
         [
@@ -506,7 +506,7 @@ _TEST_DATASETS = {
     ],
     "en-fr": [
         [
-            "https://transfer.sh/Kibpt/dcep.en-fr-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.en-fr-test.en", "dcep.en-fr-test.fr")
         ],
         [
@@ -520,7 +520,7 @@ _TEST_DATASETS = {
     ],
     "en-it": [
         [
-            "https://transfer.sh/y4Sax/dcep.en-it-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.en-it-test.en", "dcep.en-it-test.it")
         ],
         [
@@ -534,7 +534,7 @@ _TEST_DATASETS = {
     ],
     "en-sv": [
         [
-            "https://transfer.sh/1xy4j/dcep.en-sv-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.en-sv-test.en", "dcep.en-sv-test.sv")
         ],
         [
@@ -548,7 +548,7 @@ _TEST_DATASETS = {
     ],
     "es-fr": [
         [
-            "https://transfer.sh/OxEFi/dcep.es-fr-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.es-fr-test.es", "dcep.es-fr-test.fr")
         ],
         [
@@ -562,7 +562,7 @@ _TEST_DATASETS = {
     ],
     "es-it": [
         [
-            "https://transfer.sh/ZCDPp/dcep.es-it-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.es-it-test.es", "dcep.es-it-test.it")
         ],
         [
@@ -576,7 +576,7 @@ _TEST_DATASETS = {
     ],
     "es-sv": [
         [
-            "https://transfer.sh/5mO8g/dcep.es-sv-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.es-sv-test.es", "dcep.es-sv-test.sv")
         ],
         [
@@ -590,7 +590,7 @@ _TEST_DATASETS = {
     ],
     "fr-it": [
         [
-            "https://transfer.sh/jrXB2/dcep.fr-it-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.fr-it-test.fr", "dcep.fr-it-test.it")
         ],
         [
@@ -604,7 +604,7 @@ _TEST_DATASETS = {
     ],
     "fr-sv": [
         [
-            "https://transfer.sh/MWfMp/dcep.fr-sv-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.fr-sv-test.fr", "dcep.fr-sv-test.sv")
         ],
         [
@@ -618,7 +618,7 @@ _TEST_DATASETS = {
     ],
     "it-sv": [
         [
-            "https://transfer.sh/SqKx1/dcep.it-sv-test.tar.gz",
+            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
             ("dcep.it-sv-test.it", "dcep.it-sv-test.sv")
         ],
         [
