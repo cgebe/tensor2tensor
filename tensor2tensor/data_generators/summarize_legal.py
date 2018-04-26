@@ -81,43 +81,43 @@ _TRAIN_DATASETS = {
 _TEST_DATASETS = {
     "cs":
         [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.cs-test.fulltexts", "jrc_acquis.cs-test.summaries")
         ],
 
     "de":
         [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.de-test.fulltexts", "jrc_acquis.de-test.summaries")
         ],
 
     "en":
         [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.en-test.fulltexts", "jrc_acquis.en-test.summaries")
         ],
     "es":
     [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.es-test.fulltexts",
              "jrc_acquis.es-test.summaries")
         ],
 
     "fr":
         [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.fr-test.fulltexts", "jrc_acquis.fr-test.summaries")
         ],
 
     "it":
         [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.it-test.fulltexts", "jrc_acquis.it-test.summaries")
         ],
 
     "sv":
         [
-            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/pqvnr/jrc_acquis.summarize-test.tar.gz",
             ("jrc_acquis.sv-test.fulltexts", "jrc_acquis.sv-test.summaries")
         ]
 
