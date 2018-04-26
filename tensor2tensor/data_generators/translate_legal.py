@@ -338,7 +338,7 @@ _TRAIN_DATASETS = {
 _TEST_DATASETS = {
     "cs-de": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.cs-de-test.cs", "dcep.cs-de-test.de")
         ],
         [
@@ -346,13 +346,13 @@ _TEST_DATASETS = {
             ("europarl-v7.cs-de-test.cs", "europarl-v7.cs-de-test.de")
         ],
         [
-            "https://transfer.sh/ZaoIp/jrc_acquis.cs-de-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.cs-de-test.cs", "jrc_acquis.cs-de-test.de")
         ]
     ],
     "cs-en": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.cs-en-test.cs", "dcep.cs-en-test.en")
         ],
         [
@@ -360,13 +360,13 @@ _TEST_DATASETS = {
             ("europarl-v7.cs-en-test.cs", "europarl-v7.cs-en-test.en")
         ],
         [
-            "https://transfer.sh/H5ycC/jrc_acquis.cs-en-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.cs-en-test.cs", "jrc_acquis.cs-en-test.en")
         ]
     ],
     "cs-es": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.cs-es-test.cs", "dcep.cs-es-test.es")
         ],
         [
@@ -374,13 +374,13 @@ _TEST_DATASETS = {
             ("europarl-v7.cs-es-test.cs", "europarl-v7.cs-es-test.es")
         ],
         [
-            "https://transfer.sh/CthT9/jrc_acquis.cs-es-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.cs-es-test.cs", "jrc_acquis.cs-es-test.es")
         ]
     ],
     "cs-fr": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.cs-fr-test.cs", "dcep.cs-fr-test.fr")
         ],
         [
@@ -388,13 +388,13 @@ _TEST_DATASETS = {
             ("europarl-v7.cs-fr-test.cs", "europarl-v7.cs-fr-test.fr")
         ],
         [
-            "https://transfer.sh/11h1mu/jrc_acquis.cs-fr-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.cs-fr-test.cs", "jrc_acquis.cs-fr-test.fr")
         ]
     ],
     "cs-it": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.cs-it-test.cs", "dcep.cs-it-test.it")
         ],
         [
@@ -402,13 +402,13 @@ _TEST_DATASETS = {
             ("europarl-v7.cs-it-test.cs", "europarl-v7.cs-it-test.it")
         ],
         [
-            "https://transfer.sh/ZnO8v/jrc_acquis.cs-it-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.cs-it-test.cs", "jrc_acquis.cs-it-test.it")
         ]
     ],
     "cs-sv": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.cs-sv-test.cs", "dcep.cs-sv-test.sv")
         ],
         [
@@ -416,13 +416,13 @@ _TEST_DATASETS = {
             ("europarl-v7.cs-sv-test.cs", "europarl-v7.cs-sv-test.sv")
         ],
         [
-            "https://transfer.sh/h1QGw/jrc_acquis.cs-sv-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.cs-sv-test.cs", "jrc_acquis.cs-sv-test.sv")
         ]
     ],
     "de-en": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.de-en-test.de", "dcep.de-en-test.en")
         ],
         [
@@ -430,13 +430,13 @@ _TEST_DATASETS = {
             ("europarl-v7.de-en-test.de", "europarl-v7.de-en-test.en")
         ],
         [
-            "https://transfer.sh/g2XNL/jrc_acquis.de-en-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.de-en-test.de", "jrc_acquis.de-en-test.en")
         ]
     ],
     "de-es": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.de-es-test.de", "dcep.de-es-test.es")
         ],
         [
@@ -444,13 +444,13 @@ _TEST_DATASETS = {
             ("europarl-v7.de-es-test.de", "europarl-v7.de-es-test.es")
         ],
         [
-            "https://transfer.sh/14kv6J/jrc_acquis.de-es-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.de-es-test.de", "jrc_acquis.de-es-test.es")
         ]
     ],
     "de-fr": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.de-fr-test.de", "dcep.de-fr-test.fr")
         ],
         [
@@ -458,13 +458,13 @@ _TEST_DATASETS = {
             ("europarl-v7.de-fr-test.de", "europarl-v7.de-fr-test.fr")
         ],
         [
-            "https://transfer.sh/VkxyP/jrc_acquis.de-fr-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.de-fr-test.de", "jrc_acquis.de-fr-test.fr")
         ]
     ],
     "de-it": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.de-it-test.de", "dcep.de-it-test.it")
         ],
         [
@@ -472,13 +472,13 @@ _TEST_DATASETS = {
             ("europarl-v7.de-it-test.de", "europarl-v7.de-it-test.it")
         ],
         [
-            "https://transfer.sh/106HDZ/jrc_acquis.de-it-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.de-it-test.de", "jrc_acquis.de-it-test.it")
         ]
     ],
     "de-sv": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.de-sv-test.de", "dcep.de-sv-test.sv")
         ],
         [
@@ -486,13 +486,13 @@ _TEST_DATASETS = {
             ("europarl-v7.de-sv-test.de", "europarl-v7.de-sv-test.sv")
         ],
         [
-            "https://transfer.sh/CGpgh/jrc_acquis.de-sv-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.de-sv-test.de", "jrc_acquis.de-sv-test.sv")
         ]
     ],
     "en-es": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.en-es-test.en", "dcep.en-es-test.es")
         ],
         [
@@ -500,13 +500,13 @@ _TEST_DATASETS = {
             ("europarl-v7.en-es-test.en", "europarl-v7.en-es-test.es")
         ],
         [
-            "https://transfer.sh/q4mCx/jrc_acquis.en-es-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.en-es-test.en", "jrc_acquis.en-es-test.es")
         ]
     ],
     "en-fr": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.en-fr-test.en", "dcep.en-fr-test.fr")
         ],
         [
@@ -514,13 +514,13 @@ _TEST_DATASETS = {
             ("europarl-v7.en-fr-test.en", "europarl-v7.en-fr-test.fr")
         ],
         [
-            "https://transfer.sh/12JQjr/jrc_acquis.en-fr-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.en-fr-test.en", "jrc_acquis.en-fr-test.fr")
         ]
     ],
     "en-it": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.en-it-test.en", "dcep.en-it-test.it")
         ],
         [
@@ -528,13 +528,13 @@ _TEST_DATASETS = {
             ("europarl-v7.en-it-test.en", "europarl-v7.en-it-test.it")
         ],
         [
-            "https://transfer.sh/WeqCa/jrc_acquis.en-it-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.en-it-test.en", "jrc_acquis.en-it-test.it")
         ]
     ],
     "en-sv": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.en-sv-test.en", "dcep.en-sv-test.sv")
         ],
         [
@@ -542,13 +542,13 @@ _TEST_DATASETS = {
             ("europarl-v7.en-sv-test.en", "europarl-v7.en-sv-test.sv")
         ],
         [
-            "https://transfer.sh/pIPoD/jrc_acquis.en-sv-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.en-sv-test.en", "jrc_acquis.en-sv-test.sv")
         ]
     ],
     "es-fr": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.es-fr-test.es", "dcep.es-fr-test.fr")
         ],
         [
@@ -556,13 +556,13 @@ _TEST_DATASETS = {
             ("europarl-v7.es-fr-test.es", "europarl-v7.es-fr-test.fr")
         ],
         [
-            "https://transfer.sh/sDmzu/jrc_acquis.es-fr-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.es-fr-test.es", "jrc_acquis.es-fr-test.fr")
         ]
     ],
     "es-it": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.es-it-test.es", "dcep.es-it-test.it")
         ],
         [
@@ -570,13 +570,13 @@ _TEST_DATASETS = {
             ("europarl-v7.es-it-test.es", "europarl-v7.es-it-test.it")
         ],
         [
-            "https://transfer.sh/DARu0/jrc_acquis.es-it-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.es-it-test.es", "jrc_acquis.es-it-test.it")
         ]
     ],
     "es-sv": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.es-sv-test.es", "dcep.es-sv-test.sv")
         ],
         [
@@ -584,13 +584,13 @@ _TEST_DATASETS = {
             ("europarl-v7.es-sv-test.es", "europarl-v7.es-sv-test.sv")
         ],
         [
-            "https://transfer.sh/1jxI5/jrc_acquis.es-sv-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.es-sv-test.es", "jrc_acquis.es-sv-test.sv")
         ]
     ],
     "fr-it": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.fr-it-test.fr", "dcep.fr-it-test.it")
         ],
         [
@@ -598,13 +598,13 @@ _TEST_DATASETS = {
             ("europarl-v7.fr-it-test.fr", "europarl-v7.fr-it-test.it")
         ],
         [
-            "https://transfer.sh/rf4Ne/jrc_acquis.fr-it-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.fr-it-test.fr", "jrc_acquis.fr-it-test.it")
         ]
     ],
     "fr-sv": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.fr-sv-test.fr", "dcep.fr-sv-test.sv")
         ],
         [
@@ -612,13 +612,13 @@ _TEST_DATASETS = {
             ("europarl-v7.fr-sv-test.fr", "europarl-v7.fr-sv-test.sv")
         ],
         [
-            "https://transfer.sh/TaSJS/jrc_acquis.fr-sv-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.fr-sv-test.fr", "jrc_acquis.fr-sv-test.sv")
         ]
     ],
     "it-sv": [
         [
-            "https://transfer.sh/qw3mN/dcep-test.tar.gz",
+            "https://transfer.sh/3orur/dcep-test.tar.gz",
             ("dcep.it-sv-test.it", "dcep.it-sv-test.sv")
         ],
         [
@@ -626,7 +626,7 @@ _TEST_DATASETS = {
             ("europarl-v7.it-sv-test.it", "europarl-v7.it-sv-test.sv")
         ],
         [
-            "https://transfer.sh/E06za/jrc_acquis.it-sv-test.tar.gz",
+            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
             ("jrc_acquis.it-sv-test.it", "jrc_acquis.it-sv-test.sv")
         ]
     ]
