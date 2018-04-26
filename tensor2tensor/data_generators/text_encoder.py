@@ -205,6 +205,7 @@ class ClassLabelEncoder(TextEncoder):
     if isinstance(label_id, list):
       assert len(label_id) == 1
       label_id, = label_id
+    print(self._class_labels[label_id])
     return self._class_labels[label_id]
 
   @property

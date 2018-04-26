@@ -40,6 +40,7 @@ class Metrics(object):
   RMSE = "rmse"
   LOG_POISSON = "log_poisson"
   R2 = "r_squared"
+  ROUGE_1_F = "rouge_1_fscore"
   ROUGE_2_F = "rouge_2_fscore"
   ROUGE_L_F = "rouge_L_fscore"
   SIGMOID_ACCURACY_ONE_HOT = "sigmoid_accuracy_one_hot"
@@ -280,8 +281,6 @@ def sigmoid_precision_one_hot(logits, labels, weights_fn=None):
     predictions = tf.nn.sigmoid(logits)
     predictions = tf.argmax(predictions, -1)
     predictions = tf.one_hot(predictions, num_classes)
-    predictions = tf.Print(predictions, [predictions], "pred")
-    labels = tf.Print(labels, [labels], "labels")
     _, precision = tf.metrics.precision(labels=labels, predictions=predictions)
     return precision, tf.constant(1.0)
 
@@ -301,6 +300,7 @@ def sigmoid_recall_one_hot(logits, labels, weights_fn=None):
     del weights_fn
     num_classes = logits.shape[-1]
     labels = tf.one_hot(tf.cast(labels, tf.int32), depth=num_classes, on_value=1.0, off_value=0.0)
+    logits = tf.Print(logits, [logits], "metrics-logits")
     predictions = tf.nn.sigmoid(logits)
     predictions = tf.argmax(predictions, -1)
     predictions = tf.one_hot(predictions, num_classes)
@@ -415,6 +415,7 @@ METRICS_FNS = {
     Metrics.RMSE: padded_rmse,
     Metrics.LOG_POISSON: padded_log_poisson,
     Metrics.R2: padded_variance_explained,
+    Metrics.ROUGE_1_F: rouge.rouge_1_fscore,
     Metrics.ROUGE_2_F: rouge.rouge_2_fscore,
     Metrics.ROUGE_L_F: rouge.rouge_l_fscore,
     Metrics.SIGMOID_ACCURACY_ONE_HOT: sigmoid_accuracy_one_hot,

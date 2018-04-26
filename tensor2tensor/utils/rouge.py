@@ -227,6 +227,69 @@ def rouge_n(eval_sentences, ref_sentences, n=2):
   return np.mean(f1_scores, dtype=np.float32)
 
 
+def rouge_1(eval_sentences, ref_sentences, n=1):
+  """Computes ROUGE-N f1 score of two text collections of sentences.
+
+  Sourece: http://research.microsoft.com/en-us/um/people/cyl/download/
+  papers/rouge-working-note-v1.3.1.pdf
+
+  Args:
+    eval_sentences: The sentences that have been picked by the summarizer
+    ref_sentences: The sentences from the reference set
+    n: Size of ngram.  Defaults to 2.
+
+  Returns:
+    f1 score for ROUGE-1
+  """
+
+  f1_scores = []
+  for eval_sentence, ref_sentence in zip(eval_sentences, ref_sentences):
+    eval_ngrams = _get_ngrams(n, eval_sentence)
+    ref_ngrams = _get_ngrams(n, ref_sentence)
+    ref_count = len(ref_ngrams)
+    eval_count = len(eval_ngrams)
+
+    # Gets the overlapping ngrams between evaluated and reference
+    overlapping_ngrams = eval_ngrams.intersection(ref_ngrams)
+    overlapping_count = len(overlapping_ngrams)
+
+    # Handle edge case. This isn't mathematically correct, but it's good enough
+    if eval_count == 0:
+      precision = 0.0
+    else:
+      precision = overlapping_count / eval_count
+
+    if ref_count == 0:
+      recall = 0.0
+    else:
+      recall = overlapping_count / ref_count
+
+    f1_scores.append(2.0 * ((precision * recall) / (precision + recall + 1e-8)))
+
+  # return overlapping_count / reference_count
+  return np.mean(f1_scores, dtype=np.float32)
+
+def rouge_1_fscore(predictions, labels, **unused_kwargs):
+  """ROUGE-1 F1 score computation between labels and predictions.
+
+  This is an approximate ROUGE scoring method since we do not glue word pieces
+  or decode the ids and tokenize the output.
+
+  Args:
+    predictions: tensor, model predicitons
+    labels: tensor, gold output.
+
+  Returns:
+    rouge2_fscore: approx rouge-1 f1 score.
+  """
+
+  outputs = tf.to_int32(tf.argmax(predictions, axis=-1))
+  # Convert the outputs and labels to a [batch_size, input_length] tensor.
+  outputs = tf.squeeze(outputs, axis=[-1, -2])
+  labels = tf.squeeze(labels, axis=[-1, -2])
+  rouge_1_f_score = tf.py_func(rouge_1, (labels, outputs), tf.float32)
+  return rouge_1_f_score, tf.constant(1.0)
+
 def rouge_2_fscore(predictions, labels, **unused_kwargs):
   """ROUGE-2 F1 score computation between labels and predictions.
 

@@ -578,8 +578,8 @@ class T2TModel(object):
           losses = {"extra": losses}
 
     with tf.variable_scope(target_modality.name, reuse=target_reuse):
-      print(target_modality.name)
       if not last_position_only:
+
         sharded_logits = target_modality.top_sharded(
             body_outputs, sharded_features["targets"], dp)
 

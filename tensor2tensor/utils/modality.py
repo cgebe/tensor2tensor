@@ -149,16 +149,17 @@ class Modality(object):
   def loss(self, top_out, targets, weights_fn=common_layers.weights_nonzero):
     """Compute loss numerator and denominator for one shard of output."""
     logits = top_out
-    return common_layers.padded_cross_entropy(
+    loss, weights = common_layers.padded_cross_entropy(
         logits,
         targets,
         self._model_hparams.label_smoothing,
         weights_fn=weights_fn)
+    return loss, weights
 
   def loss_sharded(self, sharded_top_out, sharded_targets, data_parallelism):
     """Compute loss for all shards."""
     sharded_loss_num, sharded_loss_den = data_parallelism(
         self.loss, sharded_top_out, sharded_targets)
-    loss = tf.add_n(sharded_loss_num) / tf.maximum(1.0,
-                                                   tf.add_n(sharded_loss_den))
+
+    loss = tf.add_n(sharded_loss_num) / tf.maximum(1.0, tf.add_n(sharded_loss_den))
     return loss

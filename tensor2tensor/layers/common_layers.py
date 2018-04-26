@@ -1477,10 +1477,13 @@ def padded_cross_entropy(logits,
     pad_logits, pad_labels = pad_with_zeros(logits, labels)
     xent = smoothing_cross_entropy(pad_logits, pad_labels, vocab_size,
                                    confidence)
+
     weights = weights_fn(pad_labels)
     if not reduce_sum:
       return xent * weights, weights
-    return tf.reduce_sum(xent * weights), tf.reduce_sum(weights)
+      
+    reduced = tf.reduce_sum(xent * weights)
+    return reduced, tf.reduce_sum(weights)
 
 
 def smoothing_cross_entropy(logits, labels, vocab_size, confidence):
@@ -1493,17 +1496,13 @@ def smoothing_cross_entropy(logits, labels, vocab_size, confidence):
     normalizing = -(confidence * tf.log(confidence) + tf.to_float(
         vocab_size - 1) * low_confidence * tf.log(low_confidence + 1e-20))
     # Soft targets.
-    #labels = tf.Print(labels, [labels], "labels")
     soft_targets = tf.one_hot(
         tf.cast(labels, tf.int32),
         depth=vocab_size,
         on_value=confidence,
         off_value=low_confidence)
-    #soft_targets = tf.Print(soft_targets, [soft_targets], "soft_targets")
-    #logits = tf.Print(logits, [logits], "logits")
     xentropy = tf.nn.softmax_cross_entropy_with_logits(
         logits=logits, labels=soft_targets)
-    #xentropy = tf.Print(xentropy, [xentropy], "xent")
     return xentropy - normalizing
 
 

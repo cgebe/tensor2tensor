@@ -27,6 +27,8 @@ from tensor2tensor.data_generators import text_encoder
 from tensor2tensor.utils import metrics
 from tensor2tensor.utils import registry
 
+import os
+import tarfile
 import tensorflow as tf
 
 FLAGS = tf.flags.FLAGS
@@ -34,140 +36,116 @@ FLAGS = tf.flags.FLAGS
 EOS = text_encoder.EOS_ID
 
 _TRAIN_DATASETS = {
-    "cs": [
+    "cs":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.cs.fulltexts", "jrc_acquis.cs.summaries")
         ],
-    ],
-    "de": [
+    "de":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.de.fulltexts", "jrc_acquis.de.summaries")
         ],
-    ],
-    "en": [
+
+    "en":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.en.fulltexts", "jrc_acquis.en.summaries")
         ],
-    ],
-    "es": [
+
+    "es":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.es.fulltexts", "jrc_acquis.es.summaries")
         ],
-    ],
-    "fr": [
+
+    "fr":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.fr.fulltexts", "jrc_acquis.fr.summaries")
         ],
-    ],
-    "it": [
+
+    "it":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.it.fulltexts", "jrc_acquis.it.summaries")
         ],
-    ],
-    "sv": [
+
+    "sv":
         [
-            "https://transfer.sh/J95xx/jrc_acquis_summarize.tar.gz",
+            "https://transfer.sh/clezv/jrc_acquis_summarize.tar.gz",
             ("jrc_acquis.sv.fulltexts", "jrc_acquis.sv.summaries")
-        ],
-    ],
+        ]
 }
 
 _TEST_DATASETS = {
-    "cs": [
+    "cs":
         [
-            "https://transfer.sh/11fBci/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
             ("jrc_acquis.cs-test.fulltexts", "jrc_acquis.cs-test.summaries")
         ],
-    ],
-    "de": [
+
+    "de":
         [
-            "https://transfer.sh/11fBci/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
             ("jrc_acquis.de-test.fulltexts", "jrc_acquis.de-test.summaries")
         ],
-    ],
-    "en": [
+
+    "en":
         [
-            "https://transfer.sh/11fBci/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
             ("jrc_acquis.en-test.fulltexts", "jrc_acquis.en-test.summaries")
         ],
-    ],
-    "fr": [
+    "es":
+    [
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
+            ("jrc_acquis.es-test.fulltexts",
+             "jrc_acquis.es-test.summaries")
+        ],
+
+    "fr":
         [
-            "https://transfer.sh/11fBci/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
             ("jrc_acquis.fr-test.fulltexts", "jrc_acquis.fr-test.summaries")
         ],
-    ],
-    "it": [
+
+    "it":
         [
-            "https://transfer.sh/11fBci/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
             ("jrc_acquis.it-test.fulltexts", "jrc_acquis.it-test.summaries")
         ],
-    ],
-    "sv": [
+
+    "sv":
         [
-            "https://transfer.sh/11fBci/jrc_acquis_summarize-test.tar.gz",
+            "https://transfer.sh/nx0n8/jrc_acquis_summarize-test.tar.gz",
             ("jrc_acquis.sv-test.fulltexts", "jrc_acquis.sv-test.summaries")
-        ],
-    ]
+        ]
+
 }
 
 
-def compile_data(tmp_dir, datasets, filename):
-    """Concatenate all `datasets` and save to `filename`."""
-    filename = os.path.join(tmp_dir, filename)
-    with tf.gfile.GFile(filename + ".fulltexts", mode="w") as fulltexts_resfile:
-        with tf.gfile.GFile(filename + ".summaries", mode="w") as summaries_resfile:
-            for dataset in datasets:
-                url = dataset[0]
-                compressed_filename = os.path.basename(url)
-                compressed_filepath = os.path.join(
-                    tmp_dir, compressed_filename)
+def download_and_extract_data(tmp_dir, dataset):
+    """Download and Extract files."""
+    url = dataset[0]
+    print(dataset[0])
+    print(dataset[0])
+    compressed_filename = os.path.basename(url)
+    compressed_file = generator_utils.maybe_download(
+        tmp_dir, compressed_filename, url)
 
-                generator_utils.maybe_download(
-                    tmp_dir, compressed_filename, url)
+    for file in dataset[1]:
+        tf.logging.info("Reading file: %s" % file)
+        filepath = os.path.join(tmp_dir, file)
 
-                fulltexts_filename, summaries_filename = dataset[1]
-                fulltexts_filepath = os.path.join(tmp_dir, fulltexts_filename)
-                summaries_filepath = os.path.join(tmp_dir, summaries_filename)
+        # Extract from tar if needed.
+        if not tf.gfile.Exists(filepath):
+            with tarfile.open(compressed_file, "r:gz") as corpus_tar:
+                corpus_tar.extractall(tmp_dir)
 
-                if not (os.path.exists(fulltexts_filepath) and
-                        os.path.exists(summaries_filepath)):
-                    # For .tar.gz and .tgz files, we read compressed.
-                    mode = "r:gz" if compressed_filepath.endswith(
-                        "gz") else "r"
-                    with tarfile.open(compressed_filepath, mode) as corpus_tar:
-                        corpus_tar.extractall(tmp_dir)
-                if fulltexts_filepath.endswith(".gz"):
-                    new_filepath = fulltexts_filepath.strip(".gz")
-                    generator_utils.gunzip_file(
-                        fulltexts_filepath, new_filepath)
-                    fulltexts_filepath = new_filepath
-                if summaries_filepath.endswith(".gz"):
-                    new_filepath = summaries_filepath.strip(".gz")
-                    generator_utils.gunzip_file(
-                        summaries_filepath, new_filepath)
-                    summaries_filepath = new_filepath
-
-                with tf.gfile.GFile(fulltexts_filepath, mode="r") as fulltexts_file:
-                    with tf.gfile.GFile(summaries_filepath, mode="r") as summaries_file:
-                        line1, line2 = fulltexts_file.readline(), summaries_file.readline()
-                        while line1 or line2:
-                            line1res = _preprocess_sgm(line1, False)
-                            line2res = _preprocess_sgm(line2, False)
-                            if line1res or line2res:
-                                fulltexts_resfile.write(
-                                    line1res.strip() + "\n")
-                                summaries_resfile.write(
-                                    line2res.strip() + "\n")
-                            line1, line2 = fulltexts_file.readline(), summaries_file.readline()
-
-    return filename
+    fulltexts_filename, summaries_filename = dataset[1]
+    fulltexts_filepath = os.path.join(tmp_dir, fulltexts_filename)
+    summaries_filepath = os.path.join(tmp_dir, summaries_filename)
+    return fulltexts_filepath, summaries_filepath
 
 
 def token_generator(source_path, target_path, token_vocab, eos=None):
@@ -212,7 +190,7 @@ class SummarizeLegal32k(problem.Text2TextProblem):
 
     @property
     def num_shards(self):
-        return 100
+        return 10
 
     @property
     def use_subword_tokenizer(self):
@@ -250,15 +228,13 @@ class SummarizeCsLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.cs"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["cs"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["cs"]])
         datasets = _TRAIN_DATASETS["cs"] if train else _TEST_DATASETS["cs"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_cs_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)
 
 
 @registry.register_problem
@@ -277,15 +253,13 @@ class SummarizeDeLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.de"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["de"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["de"]])
         datasets = _TRAIN_DATASETS["de"] if train else _TEST_DATASETS["de"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_de_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)
 
 
 @registry.register_problem
@@ -304,15 +278,13 @@ class SummarizeEnLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.en"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["en"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["en"]])
         datasets = _TRAIN_DATASETS["en"] if train else _TEST_DATASETS["en"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_en_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)
 
 
 @registry.register_problem
@@ -331,15 +303,13 @@ class SummarizeEsLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.es"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["es"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["es"]])
         datasets = _TRAIN_DATASETS["es"] if train else _TEST_DATASETS["es"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_es_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)
 
 
 @registry.register_problem
@@ -358,15 +328,13 @@ class SummarizeFrLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.fr"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["fr"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["fr"]])
         datasets = _TRAIN_DATASETS["fr"] if train else _TEST_DATASETS["fr"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_fr_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)
 
 
 @registry.register_problem
@@ -385,15 +353,13 @@ class SummarizeItLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.it"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["it"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["it"]])
         datasets = _TRAIN_DATASETS["it"] if train else _TEST_DATASETS["it"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_it_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)
 
 
 @registry.register_problem
@@ -412,12 +378,10 @@ class SummarizeSvLegal32k(SummarizeLegal32k):
     def vocab_name(self):
         return "vocab.sum.sv"
 
-    def generator(self, data_dir, tmp_dir, is_training):
+    def generator(self, data_dir, tmp_dir, train):
         vocab = generator_utils.get_or_generate_vocab(
-            data_dir, self.vocab_file, self.targeted_vocab_size, _TRAIN_DATASETS["sv"])
+            data_dir, tmp_dir, self.vocab_file, self.targeted_vocab_size, [_TRAIN_DATASETS["sv"]])
         datasets = _TRAIN_DATASETS["sv"] if train else _TEST_DATASETS["sv"]
-        tag = "train" if train else "dev"
-        # compile to save the texts onto disc
-        data_path = compile_data(
-            tmp_dir, datasets, "summarize_sv_tok_%s" % tag)
-        return token_generator(data_path + ".fulltexts", data_path + ".summaries", vocab, EOS)
+        fulltext_file, summaries_file = download_and_extract_data(
+            tmp_dir, datasets)
+        return token_generator(fulltext_file, summaries_file, vocab, EOS)

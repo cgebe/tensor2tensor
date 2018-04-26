@@ -76,7 +76,7 @@ class LegalClassification(problem.Problem):
 
     @property
     def num_shards(self):
-        return 20
+        return 10
 
     @property
     def vocab_file(self):
@@ -130,7 +130,7 @@ class LegalClassification(problem.Problem):
     def example_reading_spec(self):
         data_fields = {
             "inputs": tf.VarLenFeature(tf.int64),
-            "targets": tf.FixedLenFeature([1], tf.int64),
+            "targets": tf.VarLenFeature(tf.int64),
         }
         data_items_to_decoders = None
         return (data_fields, data_items_to_decoders)
@@ -204,6 +204,7 @@ class VerdictClassification(LegalClassification):
         # Generate examples
         datasets = _TRAIN_DATASETS["facts-result"] if train else _TEST_DATASETS["facts-result"]
         for doc, label in self.doc_generator(tmp_dir, datasets, _RESULT_CLASSES, include_label=True):
+            print(label, end=" ")
             yield {
                 "inputs": encoder.encode(doc) + [EOS],
                 "targets": [label],
