@@ -50,6 +50,8 @@ class Metrics(object):
   EDIT_DISTANCE = "edit_distance"
   SET_PRECISION = "set_precision"
   SET_RECALL = "set_recall"
+  RECALL = "recall"
+  PRECISION = "precision"
 
 
 def padded_rmse(predictions, labels, weights_fn=common_layers.weights_all):
@@ -194,6 +196,36 @@ def padded_accuracy(predictions,
     padded_labels = tf.to_int32(padded_labels)
     return tf.to_float(tf.equal(outputs, padded_labels)), weights
 
+
+def recall(predictions,
+                    labels,
+                    weights_fn=common_layers.weights_nonzero):
+  """Recall"""
+  with tf.variable_scope("recall", values=[predictions, labels]):
+    outputs = tf.to_int32(tf.argmax(predictions, axis=-1))
+    labels = tf.to_int32(labels)
+    outputs = tf.squeeze(outputs)
+    labels = tf.squeeze(labels)
+    labels = tf.Print(labels, [labels], "Labels", summarize=30)
+    outputs = tf.Print(outputs, [outputs], "Outputs", summarize=30)
+    inter = tf.sets.set_intersection(a=outputs, b=labels)
+    inter = tf.Print(inter, [inter], "inter", summarize=30)
+    true_positives = tf.to_float(tf.shape(inter)[-1])
+    true_positives = tf.Print(true_positives, [true_positives], "TP")
+    false_negatives = tf.to_float(tf.shape(tf.sets.set_difference(a=outputs, b=labels))[-1])
+    true_positives = tf.Print(false_negatives, [false_negatives], "FN")
+    return tf.to_float(true_positives / true_positives + false_negatives), tf.constant(1.0)
+
+
+def precision(predictions,
+                    labels,
+                    weights_fn=common_layers.weights_nonzero):
+  """Precision"""
+  with tf.variable_scope("precision", values=[predictions, labels]):
+    outputs = tf.to_int32(tf.argmax(predictions, axis=-1))
+    labels = tf.to_int32(labels)
+    true_positives = tf.to_float(tf.shape(tf.sets.set_intersection(a=outputs, b=labels))[-1])
+    return tf.to_float(true_positives / tf.to_float(tf.shape(labels)[-1])), tf.constant(1.0)
 
 def set_precision(predictions,
                   labels,
@@ -425,4 +457,6 @@ METRICS_FNS = {
     Metrics.EDIT_DISTANCE: sequence_edit_distance,
     Metrics.SET_PRECISION: set_precision,
     Metrics.SET_RECALL: set_recall,
+    Metrics.PRECISION: precision,
+    Metrics.RECALL: recall,
 }
