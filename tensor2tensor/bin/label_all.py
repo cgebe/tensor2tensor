@@ -1,12 +1,12 @@
 import os
 
 TRANSLATE_PROBLEMS = [
-    "multi_labeling_cs_legal32k",
-    "multi_labeling_de_legal32k",
-    "multi_labeling_en_legal32k",
-    "multi_labeling_es_legal32k",
-    "multi_labeling_fr_legal32k",
-    "multi_labeling_it_legal32k",
+    #"multi_labeling_cs_legal32k",
+    #"multi_labeling_de_legal32k",
+    #"multi_labeling_en_legal32k",
+    #"multi_labeling_es_legal32k",
+    #"multi_labeling_fr_legal32k",
+    #"multi_labeling_it_legal32k",
     "multi_labeling_sv_legal32k"
 ]
 

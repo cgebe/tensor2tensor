@@ -21,7 +21,7 @@ def main():
     print(joint)
     successful = False
     while not successful:
-        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/multi_labeling/joint --output_dir=$TRAIN_DIR/multi_labeling/joint --worker_gpu=4 --train_steps=25000 --model=multi_model --hparams_set=multimodel_legal --local_eval_frequency=500 --save_checkpoints_secs=180 --problems=" + joint
+        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/multi_labeling --output_dir=$TRAIN_DIR/multi_labeling/joint --worker_gpu=4 --train_steps=25000 --model=multi_model --hparams_set=multimodel_legal --local_eval_frequency=500 --save_checkpoints_secs=180 --problems=" + joint
         if os.system(cmd) == 0:
             successful = True
 
