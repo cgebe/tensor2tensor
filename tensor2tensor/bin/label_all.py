@@ -16,7 +16,7 @@ def main():
         os.system("mkdir -p $TRAIN_DIR/multi_labeling/"+problem);
         successful = False
         while not successful:
-            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/multi_labeling --output_dir=$TRAIN_DIR/multi_labeling/"+problem+" --worker_gpu=4 --train_steps=50000 --model=multi_model --hparams_set=multimodel_legal --local_eval_frequency=500 --save_checkpoints_secs=90 --problems="+problem
+            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/multi_labeling --output_dir=$TRAIN_DIR/multi_labeling/"+problem+" --worker_gpu=4 --train_steps=75000 --model=multi_model --hparams_set=multimodel_legal --local_eval_frequency=500 --save_checkpoints_secs=90 --problems="+problem
             if os.system(cmd) == 0:
                 successful = True
 
