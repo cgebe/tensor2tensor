@@ -52,13 +52,13 @@ _TRAIN_DATASETS = {
 _TEST_DATASETS = {
     "facts-courts":
         [
-            "https://transfer.sh/XusL6/gcd.facts-courts.tar.gz",
-            ("gcd.facts-test", "gcd.courts-test")
+            "https://transfer.sh/QRpS7/gcd-test.tar.gz",
+            ("court_classification.facts-test", "court_classification.courts-test")
         ],
     "facts-result":
         [
-            "https://transfer.sh/q00Zm/facts-result.tar.gz",
-            ("gcd.facts-test", "gcd.results-test")
+            "https://transfer.sh/QRpS7/gcd-test.tar.gz",
+            ("verdict_classification.facts-test", "verdict_classification.results-test")
         ]
 }
 
