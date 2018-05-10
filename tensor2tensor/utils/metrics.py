@@ -202,15 +202,11 @@ def recall(predictions,
                     weights_fn=common_layers.weights_nonzero):
   """Recall"""
   with tf.variable_scope("recall", values=[predictions, labels]):
-    outputs = tf.to_int32(tf.argmax(predictions, axis=-1))
-    labels = tf.to_int32(labels)
-    outputs = tf.squeeze(outputs)
-    labels = tf.squeeze(labels)
+    outputs = tf.squeeze(tf.to_int32(tf.argmax(predictions, axis=-1)), [2, 3])
+    labels = tf.squeeze(tf.to_int32(labels), [2, 3])
     labels = tf.Print(labels, [labels], "Labels", summarize=30)
     outputs = tf.Print(outputs, [outputs], "Outputs", summarize=30)
-    inter = tf.sets.set_intersection(a=outputs, b=labels)
-    inter = tf.Print(inter, [inter], "inter", summarize=30)
-    true_positives = tf.to_float(tf.shape(inter)[-1])
+    true_positives = tf.to_float(tf.shape(tf.sets.set_intersection(a=outputs, b=labels))[-1])
     true_positives = tf.Print(true_positives, [true_positives], "TP")
     false_negatives = tf.to_float(tf.shape(tf.sets.set_difference(a=outputs, b=labels))[-1])
     true_positives = tf.Print(false_negatives, [false_negatives], "FN")
