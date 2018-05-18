@@ -1,5 +1,6 @@
 Training
 
 - Joint 5 translation task | MultiModel: 190 seconds per 100 steps => 5 days 12 hours
+- Joint 3 across translation, summarization and labeling | MultiModel: 130 seconds per 100 steps => 3 days 18 hours
 - Single translation task | Transformer: 75 seconds per 100 steps => 2 days 6 hours
-- 
+- Single translation task | MultiModel: 90 seconds per 100 steps => 2 days 15 hours
