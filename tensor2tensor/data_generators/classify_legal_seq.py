@@ -60,8 +60,7 @@ _TEST_DATASETS = {
             "https://transfer.sh/QRpS7/gcd-test.tar.gz",
             ("verdict_classification.facts-test", "verdict_classification.results-test")
         ]
-}
-
+} 
 
 def download_and_extract_data(tmp_dir, dataset):
     """Download and Extract files."""

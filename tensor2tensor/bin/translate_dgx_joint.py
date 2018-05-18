@@ -11,7 +11,7 @@ TRANSLATE_PROBLEMS = [
     "translate_dees_legal32k",
     "translate_defr_legal32k",
     "translate_deit_legal32k",
-    #"translate_desv_legal32k",
+    "translate_desv_legal32k",
     #"translate_enes_legal32k",
     #"translate_enfr_legal32k",
     #"translate_enit_legal32k",
@@ -35,7 +35,7 @@ def main():
     successful = False
     while not successful:
         print(joint)
-        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate/joint --output_dir=$TRAIN_DIR/translate/joint-4 --worker_gpu=4 --train_steps=500000 --model=multi_model --hparams_set=multimodel_legal --problems="+joint
+        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate --output_dir=$TRAIN_DIR/translate/joint-5 --worker_gpu=8 --train_steps=250000 --model=multi_model --hparams_set=multimodel_base --problems="+joint
         if os.system(cmd) == 0:
             successful = True
 

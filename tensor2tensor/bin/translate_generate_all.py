@@ -16,22 +16,27 @@ import os
     "translate_enfr_legal32k",
     "translate_enit_legal32k",
     "translate_ensv_legal32k",
-"""
-
-TRANSLATE_PROBLEMS = [
     "translate_esfr_legal32k",
     "translate_esit_legal32k",
     "translate_essv_legal32k",
     "translate_frit_legal32k",
     "translate_frsv_legal32k",
     "translate_itsv_legal32k"
+"""
+
+TRANSLATE_PROBLEMS = [
+    "translate_deen_legal32k",
+    "translate_dees_legal32k",
+    "translate_defr_legal32k",
+    "translate_deit_legal32k",
+    "translate_desv_legal32k",
 ]
 
 
 def main():
     for problem in TRANSLATE_PROBLEMS:
-        os.system("mkdir -p $DATA_DIR/translate/"+problem);
-        if os.system("python ./t2t-datagen --data_dir=$DATA_DIR/translate/"+problem+" --tmp_dir=$TMP_DIR --problem=" + problem) == 0:
+        os.system("mkdir -p $DATA_DIR/translate/" + problem)
+        if os.system("python ./t2t-datagen --data_dir=$DATA_DIR/translate --tmp_dir=$TMP_DIR --problem=" + problem) == 0:
             continue
         else:
             print "ERROR " + problem

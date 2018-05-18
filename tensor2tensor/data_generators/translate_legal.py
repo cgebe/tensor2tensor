@@ -125,71 +125,71 @@ _TRAIN_DATASETS = {
     ],
     "de-en": [
         [
-            "https://transfer.sh/eO4Pt/dcep.de-en.tar.gz",
+            "https://transfer.sh/jCXGf/dcep.de-en.tar.gz",
             ("dcep.de-en.de", "dcep.de-en.en")
         ],
         [
-            "https://transfer.sh/REsAs/europarl-v7.de-en.tar.gz",
+            "https://transfer.sh/us7oK/europarl-v7.de-en.tar.gz",
             ("europarl-v7.de-en.de", "europarl-v7.de-en.en")
         ],
         [
-            "https://transfer.sh/Q5ofs/jrc_acquis.de-en.tar.gz",
+            "https://transfer.sh/NA8Vf/jrc_acquis.de-en.tar.gz",
             ("jrc_acquis.de-en.de", "jrc_acquis.de-en.en")
         ],
     ],
     "de-es": [
         [
-            "https://transfer.sh/OsxIK/dcep.de-es.tar.gz",
+            "https://transfer.sh/VWPVL/dcep.de-es.tar.gz",
             ("dcep.de-es.de", "dcep.de-es.es")
         ],
         [
-            "https://transfer.sh/8tX9j/europarl-v7.de-es.tar.gz",
+            "https://transfer.sh/7g3go/europarl-v7.de-es.tar.gz",
             ("europarl-v7.de-es.de", "europarl-v7.de-es.es")
         ],
         [
-            "https://transfer.sh/dN4r5/jrc_acquis.de-es.tar.gz",
+            "https://transfer.sh/w5SIv/jrc_acquis.de-es.tar.gz",
             ("jrc_acquis.de-es.de", "jrc_acquis.de-es.es")
         ]
     ],
     "de-fr": [
         [
-            "https://transfer.sh/10MfiD/dcep.de-fr.tar.gz",
+            "https://transfer.sh/oIaHM/dcep.de-fr.tar.gz",
             ("dcep.de-fr.de", "dcep.de-fr.fr")
         ],
         [
-            "https://transfer.sh/6VLp7/europarl-v7.de-fr.tar.gz",
+            "https://transfer.sh/fPh0W/europarl-v7.de-fr.tar.gz",
             ("europarl-v7.de-fr.de", "europarl-v7.de-fr.fr")
         ],
         [
-            "https://transfer.sh/CwbTq/jrc_acquis.de-fr.tar.gz",
+            "https://transfer.sh/izWgx/jrc_acquis.de-fr.tar.gz",
             ("jrc_acquis.de-fr.de", "jrc_acquis.de-fr.fr")
         ]
     ],
     "de-it": [
         [
-            "https://transfer.sh/mRiHi/dcep.de-it.tar.gz",
+            "https://transfer.sh/12WMax/dcep.de-it.tar.gz",
             ("dcep.de-it.de", "dcep.de-it.it")
         ],
         [
-            "https://transfer.sh/15u0hX/europarl-v7.de-it.tar.gz",
+            "https://transfer.sh/bmR7D/europarl-v7.de-it.tar.gz",
             ("europarl-v7.de-it.de", "europarl-v7.de-it.it")
         ],
         [
-            "https://transfer.sh/hsCyD/jrc_acquis.de-it.tar.gz",
+            "https://transfer.sh/bnZhk/jrc_acquis.de-it.tar.gz",
             ("jrc_acquis.de-it.de", "jrc_acquis.de-it.it")
         ]
     ],
     "de-sv": [
         [
-            "https://transfer.sh/iw1hd/dcep.de-sv.tar.gz",
+            "https://transfer.sh/CDtrQ/dcep.de-sv.tar.gz",
             ("dcep.de-sv.de", "dcep.de-sv.sv")
         ],
         [
-            "https://transfer.sh/w9nV0/europarl-v7.de-sv.tar.gz",
+            "https://transfer.sh/ZnTFN/europarl-v7.de-sv.tar.gz",
             ("europarl-v7.de-sv.de", "europarl-v7.de-sv.sv")
         ],
         [
-            "https://transfer.sh/Asqe5/jrc_acquis.de-sv.tar.gz",
+            "https://transfer.sh/XKkbh/jrc_acquis.de-sv.tar.gz",
             ("jrc_acquis.de-sv.de", "jrc_acquis.de-sv.sv")
         ]
     ],
@@ -422,71 +422,71 @@ _TEST_DATASETS = {
     ],
     "de-en": [
         [
-            "https://transfer.sh/3orur/dcep-test.tar.gz",
+            "https://transfer.sh/YoHRB/dcep-test-de.tar.gz",
             ("dcep.de-en-test.de", "dcep.de-en-test.en")
         ],
         [
-            "https://transfer.sh/Mtzst/europarl-v7.de-en-test.tar.gz",
+            "https://transfer.sh/bwLkM/europarl-test-de.tar.gz",
             ("europarl-v7.de-en-test.de", "europarl-v7.de-en-test.en")
         ],
         [
-            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
+            "https://transfer.sh/StjfK/jrc-test-de.tar.gz",
             ("jrc_acquis.de-en-test.de", "jrc_acquis.de-en-test.en")
         ]
     ],
     "de-es": [
         [
-            "https://transfer.sh/3orur/dcep-test.tar.gz",
+            "https://transfer.sh/YoHRB/dcep-test-de.tar.gz",
             ("dcep.de-es-test.de", "dcep.de-es-test.es")
         ],
         [
-            "https://transfer.sh/loJK1/europarl-v7.de-es-test.tar.gz",
+            "https://transfer.sh/bwLkM/europarl-test-de.tar.gz",
             ("europarl-v7.de-es-test.de", "europarl-v7.de-es-test.es")
         ],
         [
-            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
+            "https://transfer.sh/StjfK/jrc-test-de.tar.gz",
             ("jrc_acquis.de-es-test.de", "jrc_acquis.de-es-test.es")
         ]
     ],
     "de-fr": [
         [
-            "https://transfer.sh/3orur/dcep-test.tar.gz",
+            "https://transfer.sh/YoHRB/dcep-test-de.tar.gz",
             ("dcep.de-fr-test.de", "dcep.de-fr-test.fr")
         ],
         [
-            "https://transfer.sh/H86yL/europarl-v7.de-fr-test.tar.gz",
+            "https://transfer.sh/bwLkM/europarl-test-de.tar.gz",
             ("europarl-v7.de-fr-test.de", "europarl-v7.de-fr-test.fr")
         ],
         [
-            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
+            "https://transfer.sh/StjfK/jrc-test-de.tar.gz",
             ("jrc_acquis.de-fr-test.de", "jrc_acquis.de-fr-test.fr")
         ]
     ],
     "de-it": [
         [
-            "https://transfer.sh/3orur/dcep-test.tar.gz",
+            "https://transfer.sh/YoHRB/dcep-test-de.tar.gz",
             ("dcep.de-it-test.de", "dcep.de-it-test.it")
         ],
         [
-            "https://transfer.sh/LpYYG/europarl-v7.de-it-test.tar.gz",
+            "https://transfer.sh/bwLkM/europarl-test-de.tar.gz",
             ("europarl-v7.de-it-test.de", "europarl-v7.de-it-test.it")
         ],
         [
-            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
+            "https://transfer.sh/StjfK/jrc-test-de.tar.gz",
             ("jrc_acquis.de-it-test.de", "jrc_acquis.de-it-test.it")
         ]
     ],
     "de-sv": [
         [
-            "https://transfer.sh/3orur/dcep-test.tar.gz",
+            "https://transfer.sh/YoHRB/dcep-test-de.tar.gz",
             ("dcep.de-sv-test.de", "dcep.de-sv-test.sv")
         ],
         [
-            "https://transfer.sh/SN3Oc/europarl-v7.de-sv-test.tar.gz",
+            "https://transfer.sh/bwLkM/europarl-test-de.tar.gz",
             ("europarl-v7.de-sv-test.de", "europarl-v7.de-sv-test.sv")
         ],
         [
-            "https://transfer.sh/4iZiZ/jrc_acquis-test.tar.gz",
+            "https://transfer.sh/StjfK/jrc-test-de.tar.gz",
             ("jrc_acquis.de-sv-test.de", "jrc_acquis.de-sv-test.sv")
         ]
     ],

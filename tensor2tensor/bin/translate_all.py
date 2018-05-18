@@ -32,17 +32,7 @@ def main():
         os.system("mkdir -p $TRAIN_DIR/translate/"+problem);
         successful = False
         while not successful:
-            numbers = []
-            for f in os.listdir(os.environ['TRAIN_DIR']+"/translate/"+problem):
-                if f.endswith(".index"):
-                    numbers.append(int(f.split("-")[1].split(".")[0]))
-            if (len(numbers)) > 0 :
-                steps = 500000 - max(numbers)
-            else:
-                steps = 500000
-
-            print(steps)
-            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate/"+problem+" --output_dir=$TRAIN_DIR/translate/"+problem+" --worker_gpu=4 --training_steps="+str(steps)+" --model=multi_model --hparams_set=multimodel_legal --problems="+problem
+            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate --output_dir=$TRAIN_DIR/translate/"+problem+" --worker_gpu=4 --training_steps=500000 --model=multi_model --hparams_set=multimodel_legal --problems="+problem
             if os.system(cmd) == 0:
                 successful = True
 
