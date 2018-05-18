@@ -37,37 +37,37 @@ EOS = text_encoder.EOS_ID
 _TRAIN_DATASETS = {
     "cs":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.cs.documents", "jrc_acquis.cs.labels")
         ],
     "de":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.de.documents", "jrc_acquis.de.labels")
         ],
     "en":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.en.documents", "jrc_acquis.en.labels")
         ],
     "es":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.es.documents", "jrc_acquis.es.labels")
         ],
     "fr":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.fr.documents", "jrc_acquis.fr.labels")
         ],
     "it":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.it.documents", "jrc_acquis.it.labels")
         ],
     "sv":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.sv.documents", "jrc_acquis.sv.labels")
         ],
 }
@@ -75,37 +75,37 @@ _TRAIN_DATASETS = {
 _TEST_DATASETS = {
     "cs":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.cs-test.documents", "jrc_acquis.cs-test.labels")
         ],
     "de":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.de-test.documents", "jrc_acquis.de-test.labels")
         ],
     "en":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.en-test.documents", "jrc_acquis.en-test.labels")
         ],
     "es":
         [
-                "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+                "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
                 ("jrc_acquis.es-test.documents", "jrc_acquis.es-test.labels")
         ],
     "fr":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.fr-test.documents", "jrc_acquis.fr-test.labels")
         ],
     "it":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.it-test.documents", "jrc_acquis.it-test.labels")
         ],
     "sv":
         [
-            "https://transfer.sh/lf3Ec/jrc_acquis.multilabeling.tar.gz",
+            "https://transfer.sh/uuURc/jrc_acquis.multilabeling.tar.gz",
             ("jrc_acquis.sv-test.documents", "jrc_acquis.sv-test.labels")
         ],
 
