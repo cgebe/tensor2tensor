@@ -32,7 +32,7 @@ def main():
 
     joint = joint[:-1]
     print(joint)
-    cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate --output_dir=$TRAIN_DIR/multimodel/translate/joint-chain --worker_gpu=8 --train_steps=250000 --model=multi_model --hparams_set=multimodel_base --save_checkpoints_secs=1200 --problems="+joint
+    cmd = "python ./t2t-trainer --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/multimodel/translate/joint-chain --worker_gpu=8 --train_steps=250000 --model=multi_model --hparams_set=multimodel_base --save_checkpoints_secs=1200 --problems="+joint
     if os.system(cmd) == 0:
         continue
 
