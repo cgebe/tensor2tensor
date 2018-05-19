@@ -44,20 +44,20 @@ def getTestFile(corpus, problem):
     pair = problem.split("_")[1]
     langs = pair[:2] + "-" + pair[2:]
     if corpus == "jrc":
-        return "jrc/jrc_acquis."+langs+"-test."+pair[:2]
+        return "jrc_acquis."+langs+"-test."+pair[:2]
     if corpus == "dcep":
-        return "dcep/dcep."+langs+"-test."+pair[:2]
+        return "dcep."+langs+"-test."+pair[:2]
     if corpus == "europarl":
-        return "europarl/europarl-v7."+langs+"-test."+pair[:2]
+        return "europarl-v7."+langs+"-test."+pair[:2]
 
 def getDecodeFile(corpus, problem):
     pair = problem.split("_")[1]
     langs = pair[:2] + "-" + pair[2:]
     if corpus == "jrc":
-        return "jrc/jrc_acquis.joint-diverse"
+        return "jrc_acquis.joint-diverse"
     if corpus == "dcep":
-        return "dcep/dcep.joint-diverse"
+        return "dcep.joint-diverse"
     if corpus == "europarl":
-        return "europarl/europarl-v7.joint-diverse"
+        return "europarl-v7.joint-diverse"
 
 main()
