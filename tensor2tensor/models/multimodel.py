@@ -221,6 +221,7 @@ def multimodel_base():
   hparams.add_hparam("num_heads", 8)
   hparams.add_hparam("moe_layers", "2")
   hparams.moe_num_experts = 30
+  hparams.max_input_seq_length = 1000 # prevent oom
   return hparams
 
 

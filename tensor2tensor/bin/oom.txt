@@ -1,0 +1,11 @@
+Caused by op u'cond_2/cond/cond/cond/body/dec_layer_2/attention/parallel_0_1/attention/encdec_attention/dot_product_attention/add', defined at:
+
+<traceback>
+
+ResourceExhaustedError (see above for traceback): OOM when allocating tensor with shape[1,8,2044,2035]
+         [[Node: cond_2/cond/cond/cond/body/dec_layer_2/attention/parallel_0_1/attention/encdec_attention/dot_product_attention/add = Add[T=DT_FLOAT, _device="/job:localhost/replica:0/task:0
+/device:GPU:0"](cond_2/cond/cond/cond/body/dec_layer_2/attention/parallel_0_1/attention/encdec_attention/dot_product_attention/MatMul, cond_2/cond/cond/cond/body/parallel_0_7/body/ExpandDims
+_1)]]
+         [[Node: training/gradients/cond_2/cond/cond/cond/body_1/enc_layer_0/moe/parallel_2_7/moe/concat_grad/tuple/control_dependency_11/_258987 = _Recv[client_terminated=false, recv_device
+="/job:localhost/replica:0/task:0/device:GPU:3", send_device="/job:localhost/replica:0/task:0/device:GPU:2", send_device_incarnation=1, tensor_name="edge_920249_training/gradients/cond_2/con
+d/cond/cond/body_1/enc_layer_0/moe/parallel_2_7/moe/concat_grad/tuple/control_dependency_11", tensor_type=DT_FLOAT, _device="/job:localhost/replica:0/task:0/device:GPU:3"]()]]

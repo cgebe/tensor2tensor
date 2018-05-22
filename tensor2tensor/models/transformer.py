@@ -701,6 +701,7 @@ def transformer_base_v2():
   hparams.relu_dropout = 0.1
   hparams.learning_rate_warmup_steps = 8000
   hparams.learning_rate = 0.2
+  hparams.max_input_seq_length = 1000 # prevent oom
   return hparams
 
 
