@@ -7,7 +7,11 @@ DGX-1 (P100)
 - Single translation task | Transformer: 75 seconds per 100 steps => 2 days 6 hours
 - Single translation task | MultiModel: 90 seconds per 100 steps => 2 days 15 hours
 
+at maximum of 100% per GPU
+
 DGX-1 (V100)
 
 
 - Joint 5 translation task | MultiModel: 145 seconds per 100 steps => 100 hours / 4 days 4 hours - input limit otherwise ~104 hours - 4%
+
+at maximum of 50% per GPU

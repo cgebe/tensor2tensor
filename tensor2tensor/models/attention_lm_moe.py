@@ -536,6 +536,11 @@ def attention_lm_moe_base():
   hparams.add_hparam("use_inputs", int(False))
   return hparams
 
+@registry.register_hparams
+def attention_lm_moe_base_v2():
+  hparams = attention_lm_moe_base()
+  hparams.max_input_seq_length = 1000 # prevent oom
+  return hparams
 
 @registry.register_hparams
 def attention_lm_moe_base_long_seq():
