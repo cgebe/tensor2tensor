@@ -704,11 +704,15 @@ def transformer_base_v2():
   hparams.max_input_seq_length = 1000 # prevent oom
   return hparams
 
-
 @registry.register_hparams
 def transformer_base():
   return transformer_base_v2()
 
+@registry.register_hparams
+def transformer_base_v3():
+  hparams = transformer_base_v2()
+  hparams.batch_size = 2048
+  return hparams
 
 @registry.register_hparams
 def transformer_n_da():
