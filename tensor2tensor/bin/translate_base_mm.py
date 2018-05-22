@@ -29,11 +29,7 @@ TRANSLATE_PROBLEMS = [
 
 def main():
     for problem in TRANSLATE_PROBLEMS:
-        os.system("mkdir -p $TRAIN_DIR/translate/"+problem);
-        successful = False
-        while not successful:
-            cmd = "python ./t2t-trainer --data_dir=$DATA_DIR/translate --output_dir=$TRAIN_DIR/multimodel/translate/"+problem+" --schedule=train --worker_gpu=4 --training_steps=500000 --model=multi_model --hparams_set=multimodel_base --problems="+problem
-            if os.system(cmd) == 0:
-                successful = True
+        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/multimodel/translate/"+problem+" --schedule=train --worker_gpu=4 --training_steps=500000 --model=multi_model --hparams_set=multimodel_base --problems="+problem
+        os.system(cmd)
 
 main()
