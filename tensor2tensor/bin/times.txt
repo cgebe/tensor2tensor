@@ -8,10 +8,43 @@ DGX-1 (P100)
 - Single translation task | MultiModel: 90 seconds per 100 steps => 2 days 15 hours
 
 at maximum of 100% per GPU
+at maximum of 50% per GPU
 
 DGX-1 (V100)
 
-
 - Joint 5 translation task | MultiModel: 145 seconds per 100 steps => 100 hours / 4 days 4 hours - input limit otherwise ~104 hours - 4%
+- Joint 3 across translation, summarization and labeling | MultiModel: 130 seconds per 100 steps => 3 days 18 hours
+- Decoding
+- Upload / Save last checkpoint and DECODES
+- Single task | Multimodel: 2 days 15 hours / 1 day
 
-at maximum of 50% per GPU
+DGX-1 (P100)
+
+- Joint 7 chain translation | Multimodel: 6 days 12 hours
+- Single task | Multimodel: 2 days 15 hours / 1 day
+
+later on
+
+- Joint 7 labeling task | Multimodel: 2 days 6 hours
+- Joint 7 summarization task | Multimodel: 2 days 6 hours
+
+DE-EN dcep 2,5h / jrc 1,5h / europarl 1,5h
+DE-ES
+DE-FR
+DE-IT
+DE-SV
+
+TODO:
+- chapter 2 and chapter 3
+
+After publication / think about everything
+- Thesis Corpora Availability to mediatum, check upload possibilities
+- Publication of paper about multi task deep learning in the legal domain
+- Papers: 7 each single / joint / joint all
+- or 1 Paper: containing everything
+- Multimodel add to tenor2tensor
+
+FIXES:
+Reasearch Milestones:
+- Analysis of Multi-Task Models
+- Formulate in more general ways, no library names

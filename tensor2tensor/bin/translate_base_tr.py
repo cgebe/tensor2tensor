@@ -29,7 +29,7 @@ TRANSLATE_PROBLEMS = [
 
 def main():
     for problem in TRANSLATE_PROBLEMS:
-        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/transformer/translate/"+problem+" --schedule=train --worker_gpu=4 --training_steps=500000 --model=transformer --hparams_set=transformer_base --problems="+problem
+        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/transformer/translate/"+problem+" --schedule=train --worker_gpu=4 --training_steps=500000 --model=transformer --hparams_set=transformer_base_v3 --problems="+problem
         os.system(cmd)
 
 main()
