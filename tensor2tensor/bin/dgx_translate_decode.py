@@ -34,7 +34,7 @@ CORPORA = [
 def main():
     for problem in TRANSLATE_PROBLEMS:
         for corpus in CORPORA:
-            if os.system("python ./t2t-decoder --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/multimodel/translate/joint-5-de --model=multi_model --hparams_set=multimodel_base --problems="+problem+" --decode_hparams='use_last_position_only=true,batch_size=8,beam_size=4,alpha=0.6' --decode_from_file=$DECODE_DIR/"+getTestFile(corpus, problem)+" --decode_to_file=$DECODE_DIR/"+getDecodeFile(corpus, problem)) == 0:
+            if os.system("python ./t2t-decoder --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/multimodel/all/de-only --model=multi_model --hparams_set=multimodel_base --problems="+problem+" --decode_hparams='use_last_position_only=true,batch_size=8,beam_size=4,alpha=0.6' --decode_from_file=$DECODE_DIR/"+getTestFile(corpus, problem)+" --decode_to_file=$DECODE_DIR/"+getDecodeFile(corpus, problem)) == 0:
                 continue
             else:
                 print "ERROR " + problem
