@@ -54,10 +54,10 @@ def getDecodeFile(corpus, problem):
     pair = problem.split("_")[1]
     langs = pair[:2] + "-" + pair[2:]
     if corpus == "jrc":
-        return "jrc_acquis.joint-5-translate"
+        return "jrc_acquis.joint-3-all"
     if corpus == "dcep":
-        return "dcep.joint-5-translate"
+        return "dcep.joint-3-all"
     if corpus == "europarl":
-        return "europarl-v7.joint-5-translate"
+        return "europarl-v7.joint-3-all"
 
 main()
