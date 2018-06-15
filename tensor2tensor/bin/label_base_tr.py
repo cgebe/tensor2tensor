@@ -13,7 +13,7 @@ PROBLEMS = [
 
 def main():
     for problem in PROBLEMS:
-        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/transformer/label/"+problem+" --schedule=train --worker_gpu=4 --training_steps=500000 --model=transformer --hparams_set=transformer_base_v3 --problems="+problem
+        cmd = "python ./t2t-trainer --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/transformer/label-100k/"+problem+" --schedule=train --worker_gpu=4 --train_steps=100000 --model=transformer --hparams_set=transformer_base_v3 --save_checkpoints_secs=600 --problems="+problem
         os.system(cmd)
 
 main()

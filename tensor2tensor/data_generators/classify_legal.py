@@ -39,13 +39,13 @@ EOS = text_encoder.EOS_ID
 _TRAIN_DATASETS = {
     "facts-courts": [
         [
-            "https://transfer.sh/iEDNA/gcd.facts-courts.tar.gz",
+            "https://transfer.sh/VMXIr/gcd.facts-courts.tar.gz",
             ("gcd.facts", "gcd.courts")
         ],
     ],
     "facts-result": [
         [
-            "https://transfer.sh/dqG1n/facts-result.tar.gz",
+            "https://transfer.sh/4LGW1/facts-result.tar.gz",
             ("gcd.facts", "gcd.results")
         ],
     ]
@@ -54,13 +54,13 @@ _TRAIN_DATASETS = {
 _TEST_DATASETS = {
     "facts-courts": [
         [
-            "https://transfer.sh/iEDNA/gcd.facts-courts.tar.gz",
+            "https://transfer.sh/VMXIr/gcd.facts-courts.tar.gz",
             ("gcd.facts-test", "gcd.courts-test")
         ],
     ],
     "facts-result": [
         [
-            "https://transfer.sh/dqG1n/facts-result.tar.gz",
+            "https://transfer.sh/4LGW1/facts-result.tar.gz",
             ("gcd.facts-test", "gcd.results-test")
         ],
     ]

@@ -7,7 +7,7 @@ TRANSLATE_PROBLEMS = [
     #"translate_csfr_legal32k",
     #"translate_csit_legal32k",
     #"translate_cssv_legal32k",
-    #"translate_deen_legal32k",
+    "translate_deen_legal32k",
     #"translate_dees_legal32k",
     #"translate_defr_legal32k",
     #"translate_deit_legal32k",
@@ -26,14 +26,14 @@ TRANSLATE_PROBLEMS = [
 
 CORPORA = [
     "jrc",
-    "dcep",
-    "europarl"
+    #"dcep",
+    #"europarl"
 ]
 
 def main():
     for problem in TRANSLATE_PROBLEMS:
         for corpus in CORPORA:
-            if os.system("python ./t2t-decoder --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/translate/"+problem+" --model=multi_model --hparams_set=multimodel_legal --problems="+problem+" --decode_hparams='batch_size=8,beam_size=4,alpha=0.6' --decode_from_file=$DECODE_DIR/"+getTestFile(corpus, problem)+" --decode_to_file=$DECODE_DIR/"+getDecodeFile(corpus, problem)) == 0:
+            if os.system("python ./t2t-decoder --data_dir=$DATA_DIR --output_dir=$TRAIN_DIR/transformer/translate/"+problem+" --model=transformer --hparams_set=transformer_base --problems="+problem+" --decode_hparams='use_last_position_only=true,batch_size=8,beam_size=4,alpha=0.6' --decode_from_file=$DECODE_DIR/"+getTestFile(corpus, problem)+" --decode_to_file=$DECODE_DIR/"+getDecodeFile(corpus, problem)) == 0:
                 continue
             else:
                 print "ERROR " + problem
